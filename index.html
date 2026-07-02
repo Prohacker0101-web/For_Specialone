@@ -10,13 +10,13 @@
     
     <style>
         :root {
-            --bg-light: #fbf8f5;
-            --rose-gold-dark: #8c6265;
-            --rose-gold-main: #b76e79;
-            --rose-gold-light: #e8d3d5;
-            --champagne-gold: #e5c158;
-            --soft-white: rgba(255, 255, 255, 0.85);
-            --luxury-border: rgba(183, 110, 121, 0.25);
+            --bg-light: #fff5f6; /* Premium soft pinkish white base */
+            --rose-gold-dark: #7a4b51;
+            --rose-gold-main: #c47b85; /* Aesthetic luxury pink */
+            --rose-pink-soft: #fbcacf;
+            --champagne-gold: #dfb235;
+            --soft-white: rgba(255, 255, 255, 0.92);
+            --luxury-border: rgba(196, 123, 133, 0.3);
             --font-display: 'Cinzel', serif;
             --font-body: 'Montserrat', sans-serif;
             --font-script: 'Alex Brush', cursive;
@@ -36,7 +36,6 @@
             background-color: var(--bg-light);
             font-family: var(--font-body);
             color: #4a3739;
-            cursor: default;
         }
 
         canvas {
@@ -49,21 +48,21 @@
             pointer-events: none;
         }
 
-        /* Ambient Love Music Toggle */
+        /* Fixed Top Right Music Control - Never overlaps heading */
         .music-ctrl {
             position: fixed;
-            top: 25px;
-            right: 25px;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.8);
+            top: 15px;
+            right: 15px;
+            z-index: 2000;
+            background: rgba(255, 255, 255, 0.9);
             border: 1px solid var(--luxury-border);
-            padding: 10px 20px;
+            padding: 8px 15px;
             border-radius: 30px;
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             color: var(--rose-gold-dark);
             font-family: var(--font-body);
-            font-size: 11px;
+            font-size: 10px;
             letter-spacing: 2px;
             text-transform: uppercase;
             cursor: pointer;
@@ -71,12 +70,15 @@
             display: none;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(196, 123, 133, 0.15);
+        }
+        @media(max-width: 480px) {
+            .music-ctrl { top: 10px; right: 10px; padding: 6px 12px; font-size: 8px; }
         }
         .music-ctrl:hover {
-            background: var(--soft-white);
+            background: #ffffff;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(183, 110, 121, 0.15);
+            box-shadow: 0 6px 20px rgba(196, 123, 133, 0.25);
         }
 
         .experience-stage {
@@ -100,7 +102,7 @@
             pointer-events: none;
             transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1), transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
             transform: scale(1.03);
-            padding: 24px;
+            padding: 20px;
             text-align: center;
         }
 
@@ -110,20 +112,35 @@
             transform: scale(1);
         }
 
-        /* Luxury Glassmorphism Container */
+        /* Luxury Glassmorphism Container with Scroll capability */
         .luxury-card {
             background: var(--soft-white);
             border: 1px solid var(--luxury-border);
             border-radius: 24px;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            padding: 50px 45px;
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            padding: 40px 35px;
             max-width: 680px;
             width: 100%;
-            box-shadow: 0 20px 40px rgba(140, 98, 101, 0.08), inset 0 1px 0 rgba(255,255,255,0.6);
+            max-height: 85vh; /* Prevents overflow from screen */
+            overflow-y: auto; /* Adds smooth custom scroll if content is long */
+            box-shadow: 0 20px 40px rgba(196, 123, 133, 0.12), inset 0 1px 0 rgba(255,255,255,0.7);
             transform: translateY(25px);
             transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+            position: relative;
         }
+        /* Custom Elegant Scrollbar for Luxury Card */
+        .luxury-card::-webkit-scrollbar {
+            width: 5px;
+        }
+        .luxury-card::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .luxury-card::-webkit-scrollbar-thumb {
+            background: var(--rose-pink-soft);
+            border-radius: 10px;
+        }
+        
         .screen.active .luxury-card {
             transform: translateY(0);
         }
@@ -132,26 +149,26 @@
         .cinematic-title {
             font-family: var(--font-display);
             font-weight: 500;
-            letter-spacing: 5px;
+            letter-spacing: 4px;
             text-transform: uppercase;
             color: var(--rose-gold-dark);
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             line-height: 1.5;
-            font-size: 22px;
+            font-size: 20px;
+            padding-top: 5px;
         }
 
         .luxury-script {
             font-family: var(--font-script);
-            font-size: 4rem;
+            font-size: 3.8rem;
             color: var(--rose-gold-main);
             margin-bottom: 10px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.02);
         }
 
         .gold-input {
-            background: rgba(255, 255, 255, 0.9);
+            background: #ffffff;
             border: 1px solid var(--luxury-border);
-            padding: 16px 25px;
+            padding: 14px 20px;
             border-radius: 12px;
             color: #332223;
             font-family: var(--font-body);
@@ -159,50 +176,50 @@
             letter-spacing: 2px;
             text-align: center;
             width: 100%;
-            max-width: 280px;
+            max-width: 260px;
             margin-top: 20px;
-            transition: all 0.4s ease;
             outline: none;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 10px rgba(196,123,133,0.05);
         }
         .gold-input:focus {
             border-color: var(--rose-gold-main);
-            box-shadow: 0 0 15px rgba(183, 110, 121, 0.25);
+            box-shadow: 0 0 15px rgba(196, 123, 133, 0.3);
         }
 
         .action-trigger {
-            margin-top: 30px;
-            background: linear-gradient(135deg, var(--rose-gold-main), #dca67b);
+            margin-top: 25px;
+            background: linear-gradient(135deg, var(--rose-gold-main), #e09ba4);
             border: none;
-            padding: 16px 45px;
+            padding: 15px 40px;
             border-radius: 30px;
             color: #ffffff;
             font-family: var(--font-body);
             font-weight: 500;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            font-size: 12px;
+            font-size: 11px;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-            box-shadow: 0 8px 20px rgba(183, 110, 121, 0.3);
+            transition: all 0.4s ease;
+            box-shadow: 0 6px 18px rgba(196, 123, 133, 0.35);
         }
         .action-trigger:hover {
             transform: translateY(-2px);
-            box-shadow: 0 12px 25px rgba(183, 110, 121, 0.4);
+            box-shadow: 0 10px 22px rgba(196, 123, 133, 0.45);
         }
 
-        /* Heart Container with Guide Text */
+        /* Heart Control with Guide Text Fixed */
         .heart-wrapper {
-            margin-top: 35px;
+            margin-top: 30px;
             display: inline-flex;
             flex-direction: column;
             align-items: center;
             gap: 8px;
+            width: 100%;
         }
 
         .heart-flow-btn {
-            width: 55px;
-            height: 55px;
+            width: 52px;
+            height: 52px;
             border-radius: 50%;
             background: #ffffff;
             border: 1px solid var(--luxury-border);
@@ -211,112 +228,103 @@
             align-items: center;
             cursor: pointer;
             transition: all 0.4s ease;
-            box-shadow: 0 4px 12px rgba(183, 110, 121, 0.1);
+            box-shadow: 0 4px 12px rgba(196, 123, 133, 0.15);
         }
         .heart-flow-btn svg {
-            width: 22px;
-            height: 22px;
+            width: 20px;
+            height: 20px;
             fill: var(--rose-gold-main);
             transition: all 0.4s ease;
         }
         .heart-flow-btn:hover {
             border-color: var(--champagne-gold);
-            box-shadow: 0 0 20px rgba(229, 193, 88, 0.4);
-            transform: scale(1.08);
-        }
-        .heart-flow-btn:hover svg {
-            fill: var(--champagne-gold);
+            box-shadow: 0 0 15px rgba(229, 193, 88, 0.4);
+            transform: scale(1.06);
         }
 
         .heart-guide-text {
             font-family: var(--font-body);
-            font-size: 10px;
+            font-size: 9px;
             letter-spacing: 2px;
             text-transform: uppercase;
             color: var(--rose-gold-dark);
             font-weight: 500;
-            opacity: 0.8;
             animation: softPulse 2s infinite ease-in-out;
         }
 
-        /* Hinglish Texts */
+        /* Text Area */
         .typewriter-vault {
             font-family: var(--font-body);
             font-weight: 300;
-            font-size: 16px;
-            line-height: 2.1;
+            font-size: 15px;
+            line-height: 2;
             letter-spacing: 0.5px;
             color: #554143;
             text-align: left;
-            min-height: 180px;
-            margin: 20px 0;
+            min-height: 140px;
+            margin: 15px 0;
         }
 
         .emotional-prose {
             font-size: 15px;
-            line-height: 2;
+            line-height: 1.9;
             font-weight: 300;
             color: #554143;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
-        /* Dynamic Changing Grids */
+        /* Dynamic Grid Layout Fixes */
         .luxury-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            gap: 15px;
             max-width: 950px;
             width: 100%;
-            margin-top: 25px;
+            margin-top: 20px;
         }
         @media(max-width: 768px) {
-            .luxury-grid { grid-template-columns: 1fr; max-height: 55vh; overflow-y: auto; }
+            .luxury-grid { grid-template-columns: 1fr; }
         }
         .grid-card {
-            background: var(--soft-white);
+            background: #ffffff;
             border: 1px solid var(--luxury-border);
-            padding: 28px 20px;
+            padding: 22px 18px;
             border-radius: 16px;
             transition: all 0.5s ease;
             opacity: 0;
-            transform: translateY(25px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+            transform: translateY(20px);
+            box-shadow: 0 4px 15px rgba(196,123,133,0.05);
         }
         .screen.active .grid-card {
             opacity: 1;
             transform: translateY(0);
         }
-        .grid-card:hover {
-            border-color: var(--rose-gold-main);
-            transform: translateY(-4px);
-            box-shadow: 0 12px 25px rgba(183,110,121,0.12);
-        }
         .grid-card h3 {
             font-family: var(--font-display);
-            font-size: 15px;
-            letter-spacing: 2px;
+            font-size: 14px;
+            letter-spacing: 1.5px;
             color: var(--rose-gold-dark);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
         .grid-card p {
             font-size: 13px;
             color: #665254;
-            line-height: 1.7;
+            line-height: 1.6;
         }
 
         .vow-list {
             text-align: left;
             max-width: 500px;
-            margin: 25px auto;
+            margin: 20px auto;
         }
         .vow-item {
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin: 16px 0;
-            font-size: 15px;
+            gap: 12px;
+            margin: 14px 0;
+            font-size: 14px;
             color: #554143;
-            line-height: 1.6;
+            line-height: 1.5;
         }
         .vow-bullet {
             width: 6px;
@@ -326,7 +334,7 @@
             flex-shrink: 0;
         }
 
-        /* Error Notification */
+        /* Gatekeeper Error Toast */
         .toast-system {
             position: fixed;
             bottom: 40px;
@@ -334,15 +342,15 @@
             transform: translateX(-50%) translateY(30px);
             background: #ffffff;
             border: 1px solid var(--rose-gold-main);
-            padding: 14px 30px;
+            padding: 12px 25px;
             border-radius: 30px;
-            font-size: 13px;
+            font-size: 12px;
             letter-spacing: 1.5px;
             color: var(--rose-gold-dark);
             opacity: 0;
             transition: all 0.5s ease;
             z-index: 10000;
-            box-shadow: 0 10px 25px rgba(183,110,121,0.15);
+            box-shadow: 0 10px 25px rgba(196,123,133,0.2);
         }
         .toast-system.awoken {
             opacity: 1;
@@ -361,7 +369,7 @@
     
     <button class="music-ctrl" id="musicBtn">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h6V3h-8z"/></svg>
-        Love Theme Audio
+        Bollywood Love BGM
     </button>
     
     <div class="toast-system" id="gatekeeperToast">This world is reserved for Varsha ❤️</div>
@@ -369,9 +377,9 @@
     <div class="experience-stage">
 
         <div class="screen active" id="stage-gatekeeper">
-            <div class="luxury-card" style="max-width: 520px;">
-                <div class="luxury-script" style="font-size: 3.2rem;">Welcome</div>
-                <h1 class="cinematic-title" style="font-size: 18px; margin-bottom: 15px;">A Private World Created For Someone Very Special</h1>
+            <div class="luxury-card" style="max-width: 500px;">
+                <div class="luxury-script" style="font-size: 3rem;">Welcome</div>
+                <h1 class="cinematic-title" style="font-size: 16px; margin-bottom: 10px;">A Private World Created For Someone Very Special</h1>
                 <input type="text" id="passkeyField" class="gold-input" placeholder="Enter Your Name" autocomplete="off">
                 <br>
                 <button class="action-trigger" onclick="verifyIdentity()">Unlock Universe</button>
@@ -393,48 +401,50 @@
         </div>
 
         <div class="screen" id="stage-facets">
-            <h2 class="cinematic-title" style="margin-bottom: 5px;">Things I Love About You</h2>
-            <p style="font-family: var(--font-script); font-size: 2.2rem; color: var(--rose-gold-main); margin-bottom: 25px;">Wo chhoti chhoti baatein...</p>
-            
-            <div class="luxury-grid">
-                <div class="grid-card" style="transition-delay: 0.1s;">
-                    <h3>Your Smile</h3>
-                    <p>Jab tum hasti ho na, sach me mera poora din badal jata hai. Wo ek bilkul natural si khushi milti hai jise lafzon me batana mushkil hai.</p>
+            <div class="luxury-card" style="max-width: 900px;">
+                <h2 class="cinematic-title" style="margin-bottom: 5px;">Things I Love About You</h2>
+                <p style="font-family: var(--font-script); font-size: 2.2rem; color: var(--rose-gold-main); margin-bottom: 15px;">Wo chhoti chhoti baatein...</p>
+                
+                <div class="luxury-grid">
+                    <div class="grid-card" style="transition-delay: 0.1s;">
+                        <h3>Your Smile</h3>
+                        <p>Jab tum hasti ho na, sach me mera poora din badal jata hai. Wo ek bilkul natural si khushi milti hai jise lafzon me batana mushkil hai.</p>
+                    </div>
+                    <div class="grid-card" style="transition-delay: 0.2s;">
+                        <h3>Your Kindness</h3>
+                        <p>Tumhara sabko itna aadar dena aur itni softness se baat karna... Tumhara ye nishchal swabhaw mujhe har baar tumhara deewana bana deta hai.</p>
+                    </div>
+                    <div class="grid-card" style="transition-delay: 0.3s;">
+                        <h3>Your Heart</h3>
+                        <p>Ek aisa saaf aur sacha kona jahan koi chal-kapat nahi hai. Tumhare dil me mere liye jo jagah hai, wo meri zindagi ki sabse badi daulat hai.</p>
+                    </div>
+                    <div class="grid-card" style="transition-delay: 0.4s;">
+                        <h3>Your Caring Nature</h3>
+                        <p>Mera khayal rakhna, meri chhoti se chhoti baat ko notice karna... Jab koi itni fikr karta hai na, toh khud par aur zyaada guroor hone lagta hai.</p>
+                    </div>
+                    <div class="grid-card" style="transition-delay: 0.5s;">
+                        <h3>Your Personality</h3>
+                        <p>Ekdum unique aur classy. Tum me jo thehrao hai, jo samajhdaari hai, wo mujhe hamesha sahi raah par chalne ki himmat deti hai.</p>
+                    </div>
+                    <div class="grid-card" style="transition-delay: 0.6s;">
+                        <h3>Your Presence</h3>
+                        <p>Bas tum paas raho, toh lagta hai sab theek hai. Tumhari maujoodgi hi mere bhatakte hue man ko ek sukoon bhari manzil de deti hai.</p>
+                    </div>
                 </div>
-                <div class="grid-card" style="transition-delay: 0.2s;">
-                    <h3>Your Kindness</h3>
-                    <p>Tumhara sabko itna aadar dena aur itni softness se baat karna... Tumhara ye nishchal swabhaw mujhe har baar tumhara deewana bana deta hai.</p>
-                </div>
-                <div class="grid-card" style="transition-delay: 0.3s;">
-                    <h3>Your Heart</h3>
-                    <p>Ek aisa saaf aur sacha kona jahan koi chal-kapat nahi hai. Tumhare dil me mere liye jo jagah hai, wo meri zindagi ki sabse badi daulat hai.</p>
-                </div>
-                <div class="grid-card" style="transition-delay: 0.4s;">
-                    <h3>Your Caring Nature</h3>
-                    <p>Mera khayal rakhna, meri chhoti se chhoti baat ko notice karna... Jab koi itni fikr karta hai na, toh khud par aur zyaada guroor hone lagta hai.</p>
-                </div>
-                <div class="grid-card" style="transition-delay: 0.5s;">
-                    <h3>Your Personality</h3>
-                    <p>Ekdum unique aur classy. Tum me jo thehrao hai, jo samajhdaari hai, wo mujhe hamesha sahi raah par chalne ki himmat deti hai.</p>
-                </div>
-                <div class="grid-card" style="transition-delay: 0.6s;">
-                    <h3>Your Presence</h3>
-                    <p>Bas tum paas raho, toh lagta hai sab theek hai. Tumhari maujoodgi hi mere bhatakte hue man ko ek sukoon bhari manzil de deti hai.</p>
-                </div>
-            </div>
 
-            <div class="heart-wrapper">
-                <div class="heart-flow-btn" onclick="transitionTo(3)">
-                    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.5 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                <div class="heart-wrapper">
+                    <div class="heart-flow-btn" onclick="transitionTo(3)">
+                        <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.5 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                    </div>
+                    <span class="heart-guide-text">Click on Heart</span>
                 </div>
-                <span class="heart-guide-text">Click on Heart</span>
             </div>
         </div>
 
         <div class="screen" id="stage-apology">
             <div class="luxury-card" style="max-width: 620px;">
                 <h2 class="cinematic-title">My Absolute Apology</h2>
-                <div class="luxury-script" style="font-size: 2.5rem; margin-bottom: 20px;">Dil se maafi...</div>
+                <div class="luxury-script" style="font-size: 2.5rem; margin-bottom: 15px;">Dil se maafi...</div>
                 <div class="emotional-prose">
                     "Main sach me dil se maafi mangna chahta hoon un saari baaton ke liye jisse tumhara sacha dil dukha. Mera koi aisa maksad kabhi nahi hota ki main tumhe udas karoon, par meri naasamjhi se agar tumhari aankhon me thodi bhi nami aayi ho, toh mujhe us baat ka bahut afsos hai."
                 </div>
@@ -477,7 +487,7 @@
             <div class="luxury-card">
                 <h2 class="cinematic-title">Our Future</h2>
                 <div class="luxury-script" style="font-size: 2.8rem;">Ek Khoobsurat Kal...</div>
-                <div class="emotional-prose" style="margin-top: 20px; font-size: 16px;">
+                <div class="emotional-prose" style="margin-top: 15px; font-size: 15px;">
                     "Maine apne aane wale kal ko hamesha tumhare sath dekha hai. Ek pyara sa aashiyana jahan sirf hamara sukoon ho, dher saari baten hon, duniya bhar ki yaadein sametna aur ek sath budhe hona... Tumhara hath mere hath me ho aur zindagi ka safar bas chalta rahe."
                 </div>
 
@@ -491,28 +501,29 @@
         </div>
 
         <div class="screen" id="stage-finale">
-            <div class="luxury-card" style="max-width: 720px; border: 2px solid var(--rose-gold-main); box-shadow: 0 15px 45px rgba(183,110,121,0.25);">
-                <div class="luxury-script" style="font-size: 4rem; margin-bottom: 15px;">Varsha</div>
-                <div class="emotional-prose" style="font-size: 16px; line-height: 2.3; font-weight: 400;">
+            <div class="luxury-card" style="max-width: 720px; border: 2px solid var(--rose-gold-main); box-shadow: 0 15px 45px rgba(196,123,133,0.3);">
+                <div class="luxury-script" style="font-size: 4rem; margin-bottom: 10px;">Varsha</div>
+                <div class="emotional-prose" style="font-size: 15px; line-height: 2.2; font-weight: 400;">
                     Thank you for being part of my life.<br>
                     Thank you for every smile.<br>
                     Thank you for every memory.<br>
                     <span style="color: var(--rose-gold-dark); font-weight: 500;">I don't know what the future holds,</span><br>
                     but I know every future becomes beautiful when you are in it.<br>
-                    <span style="font-family: var(--font-script); font-size: 3.2rem; color: var(--rose-gold-main); display: block; margin: 15px 0;">I love you endlessly.</span>
+                    <span style="font-family: var(--font-script); font-size: 3.2rem; color: var(--rose-gold-main); display: block; margin: 10px 0;">I love you endlessly.</span>
                 </div>
-                <div style="font-family: var(--font-display); font-size: 13px; letter-spacing: 4px; color: var(--rose-gold-dark); margin-top: 25px;">
-                    Forever Yours, <br><span style="font-size: 19px; font-weight: 600; color: var(--rose-gold-main);">Sagar ❤️</span>
+                <div style="font-family: var(--font-display); font-size: 12px; letter-spacing: 4px; color: var(--rose-gold-dark); margin-top: 20px;">
+                    Forever Yours, <br><span style="font-size: 18px; font-weight: 600; color: var(--rose-gold-main);">Sagar ❤️</span>
                 </div>
             </div>
         </div>
 
     </div>
 
-    <script strain="love-ambient">
+    <script>
         let audioCtx = null;
         let filterNode = null;
         let isAudioPlaying = false;
+        let melodyTimeout = null;
 
         function initLoveAudio() {
             try {
@@ -520,21 +531,21 @@
                 audioCtx = new AudioContext();
                 filterNode = audioCtx.createBiquadFilter();
                 filterNode.type = 'lowpass';
-                filterNode.frequency.setValueAtTime(450, audioCtx.currentTime);
+                filterNode.frequency.setValueAtTime(500, audioCtx.currentTime); // Rich tone filtering
             } catch(e) { console.log("Audio deferred."); }
         }
 
-        function createPianoNote(freq, startTime, duration, volume) {
+        function playBollywoodAcousticNote(freq, startTime, duration, volume) {
             if (!audioCtx) return;
             let osc = audioCtx.createOscillator();
             let gainNode = audioCtx.createGain();
             
-            // Soft triangle wave closely mimics standard slow cinematic romance piano keys
-            osc.type = 'triangle';
+            // Combination of sine & triangle mimics a deep, soft Bollywood string/flute ambient BGM
+            osc.type = (freq > 350) ? 'sine' : 'triangle';
             osc.frequency.setValueAtTime(freq, audioCtx.currentTime + startTime);
             
             gainNode.gain.setValueAtTime(0, audioCtx.currentTime + startTime);
-            gainNode.gain.linearRampToValueAtTime(volume, audioCtx.currentTime + startTime + 0.1);
+            gainNode.gain.linearRampToValueAtTime(volume, audioCtx.currentTime + startTime + 0.15);
             gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + startTime + duration);
             
             osc.connect(gainNode);
@@ -545,24 +556,27 @@
             osc.stop(audioCtx.currentTime + startTime + duration);
         }
 
-        function playLoveMelodyLoop() {
+        function playBollywoodBgmSequence() {
             if (!isAudioPlaying) return;
             
-            // Pure emotional progression (Db Major / Bb minor slow romance acoustic melody)
-            let notes = [
-                {f: 220.00, t: 0.0, d: 2.5, v: 0.08}, // A3
-                {f: 277.18, t: 0.5, d: 2.0, v: 0.06}, // Db4
-                {f: 329.63, t: 1.0, d: 2.0, v: 0.06}, // E4
-                {f: 440.00, t: 1.5, d: 3.0, v: 0.05}, // A4
+            // Pure Iconic Bollywood Love Chord Progression (Acoustic Evolving Flute/Piano Harmonies)
+            let current = 0;
+            let sequence = [
+                // Phase 1: Pure emotional pickup
+                {f: 293.66, t: 0.0, d: 2.0, v: 0.07}, // D4
+                {f: 349.23, t: 0.4, d: 2.0, v: 0.06}, // F4
+                {f: 440.00, t: 0.8, d: 2.5, v: 0.06}, // A4 (High romantic spike)
+                {f: 523.25, t: 1.2, d: 3.0, v: 0.05}, // C5
                 
-                {f: 246.94, t: 3.0, d: 2.5, v: 0.08}, // B3
-                {f: 293.66, t: 3.5, d: 2.0, v: 0.06}, // D4
-                {f: 392.00, t: 4.0, d: 2.0, v: 0.06}, // G4
-                {f: 493.88, t: 4.5, d: 3.0, v: 0.05}  // B4
+                // Phase 2: Flowing response cords
+                {f: 329.63, t: 2.5, d: 2.0, v: 0.07}, // E4
+                {f: 392.00, t: 2.9, d: 2.0, v: 0.06}, // G4
+                {f: 493.88, t: 3.3, d: 2.5, v: 0.06}, // B4
+                {f: 587.33, t: 3.7, d: 3.0, v: 0.04}  // D5
             ];
             
-            notes.forEach(n => createPianoNote(n.f, n.t, n.d, n.v));
-            setTimeout(playLoveMelodyLoop, 6000); // Continuous loop
+            sequence.forEach(n => playBollywoodAcousticNote(n.f, n.t, n.d, n.v));
+            melodyTimeout = setTimeout(playBollywoodBgmSequence, 6500); // Perfectly synced beautiful loop
         }
 
         function startCinematicScore() {
@@ -572,7 +586,7 @@
             
             isAudioPlaying = true;
             document.getElementById('musicBtn').style.display = 'flex';
-            playLoveMelodyLoop();
+            playBollywoodBgmSequence();
         }
 
         document.getElementById('musicBtn').addEventListener('click', () => {
@@ -602,10 +616,9 @@
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
 
-        // Custom Unique Particle Archetypes per Stage Requirement
         class LuxuryNode {
             constructor(type) {
-                this.type = type; // 'star', 'petal', 'gold_dust', 'sparkle', 'firework'
+                this.type = type; // 'star', 'petal', 'gold_dust'
                 this.reset();
                 if(type === 'star') this.y = Math.random() * canvas.height;
             }
@@ -620,12 +633,12 @@
                     this.speedX = (Math.random() - 0.5) * 0.05;
                 } else if(this.type === 'petal') {
                     this.y = -20;
-                    this.size = Math.random() * 6 + 5;
-                    this.speedY = Math.random() * 0.8 + 0.5;
-                    this.speedX = Math.sin(Math.random()) * 0.4;
+                    this.size = Math.random() * 5 + 4;
+                    this.speedY = Math.random() * 0.7 + 0.4;
+                    this.speedX = Math.sin(Math.random()) * 0.3;
                     this.angle = Math.random() * 360;
-                    this.spinSpeed = Math.random() * 0.8 - 0.4;
-                } else { // Gold sparkles / dust particles
+                    this.spinSpeed = Math.random() * 0.6 - 0.3;
+                } else { 
                     this.y = canvas.height + 10;
                     this.speedY = Math.random() * 0.4 + 0.2;
                     this.speedX = (Math.random() - 0.5) * 0.2;
@@ -652,36 +665,35 @@
                 if(this.type === 'star') {
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(140, 98, 101, ${this.alpha})`;
+                    ctx.fillStyle = `rgba(122, 75, 81, ${this.alpha})`;
                     ctx.fill();
                 } else if(this.type === 'petal') {
                     ctx.translate(this.x, this.y);
                     ctx.rotate(this.angle * Math.PI / 180);
                     ctx.beginPath();
                     ctx.ellipse(0, 0, this.size, this.size * 0.6, 0, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(183, 110, 121, 0.45)`;
+                    ctx.fillStyle = `rgba(196, 123, 133, 0.45)`; // Premium soft pink petal fill
                     ctx.fill();
                 } else {
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(229, 193, 88, ${this.alpha})`;
+                    ctx.fillStyle = `rgba(223, 178, 53, ${this.alpha})`;
                     ctx.shadowBlur = 4;
-                    ctx.shadowColor = '#e5c158';
+                    ctx.shadowColor = '#dfb235';
                     ctx.fill();
                 }
                 ctx.restore();
             }
         }
 
-        // Fresh dynamic allocation when screens shift
         function regenerateAnimationEnvironment(stage) {
             elements = [];
-            let count = 70;
+            let count = 65;
             let type = 'star';
             
             if(stage === 1 || stage === 5) type = 'star';
-            if(stage === 2 || stage === 3) type = 'petal'; // Soft Rose Petal rain for things I love/apology
-            if(stage === 4 || stage === 6) type = 'gold_dust'; // Sparkling premium vow gold dust
+            if(stage === 2 || stage === 3) type = 'petal'; 
+            if(stage === 4 || stage === 6) type = 'gold_dust'; 
 
             for(let i = 0; i < count; i++) {
                 elements.push(new LuxuryNode(type));
@@ -689,7 +701,6 @@
         }
         regenerateAnimationEnvironment(0);
 
-        // Grand Finale Fireworks Class
         class LuxuryFirework {
             constructor() {
                 this.x = Math.random() * canvas.width;
@@ -704,13 +715,13 @@
                     this.y -= this.speed;
                     if(this.y <= this.targetY) {
                         this.exploded = true;
-                        for(let i=0; i<40; i++) {
+                        for(let i=0; i<35; i++) {
                             this.sparks.push({
                                 x: this.x, y: this.y,
                                 angle: Math.random() * Math.PI * 2,
                                 speed: Math.random() * 3 + 1,
                                 alpha: 1,
-                                color: Math.random() > 0.5 ? '#b76e79' : '#e5c158'
+                                color: Math.random() > 0.5 ? '#c47b85' : '#dfb235'
                             });
                         }
                     }
@@ -727,7 +738,7 @@
                 if(!this.exploded) {
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, 2.5, 0, Math.PI * 2);
-                    ctx.fillStyle = '#b76e79';
+                    ctx.fillStyle = '#c47b85';
                     ctx.fill();
                 } else {
                     this.sparks.forEach(s => {
@@ -743,9 +754,8 @@
         }
         let finaleFireworks = [];
 
-        // Animation Master Loop
         function renderScene() {
-            ctx.fillStyle = 'rgba(251, 248, 245, 0.2)'; // Fluid luxury trail refresh
+            ctx.fillStyle = 'rgba(255, 245, 246, 0.25)'; 
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
             elements.forEach(el => {
@@ -754,7 +764,7 @@
             });
 
             if(activeStageIndex === 6) {
-                if(Math.random() < 0.025) finaleFireworks.push(new LuxuryFirework());
+                if(Math.random() < 0.02) finaleFireworks.push(new LuxuryFirework());
                 for(let i = finaleFireworks.length - 1; i >= 0; i--) {
                     finaleFireworks[i].update();
                     finaleFireworks[i].draw();
