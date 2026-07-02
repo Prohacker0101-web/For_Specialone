@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Private Universe For Varsha</title>
+    <title>For Varsha ❤️</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700&family=Montserrat:wght@200;300;400;500&family=Alex+Brush&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@300;400;500&family=Alex+Brush&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-light: #fff5f6; /* Premium soft pinkish white base */
-            --rose-gold-dark: #7a4b51;
-            --rose-gold-main: #c47b85; /* Aesthetic luxury pink */
-            --rose-pink-soft: #fbcacf;
-            --champagne-gold: #dfb235;
-            --soft-white: rgba(255, 255, 255, 0.92);
-            --luxury-border: rgba(196, 123, 133, 0.3);
+            --bg-light: #fff6f7; /* Very soft pastel pinkish white */
+            --rose-dark: #6e464a;
+            --rose-main: #cf8d96; /* Soft aesthetic pink */
+            --rose-soft: #fcdbd0;
+            --soft-white: rgba(255, 255, 255, 0.94);
+            --luxury-border: rgba(207, 141, 150, 0.25);
             --font-display: 'Cinzel', serif;
             --font-body: 'Montserrat', sans-serif;
             --font-script: 'Alex Brush', cursive;
@@ -35,7 +34,7 @@
             overflow: hidden;
             background-color: var(--bg-light);
             font-family: var(--font-body);
-            color: #4a3739;
+            color: #443335;
         }
 
         canvas {
@@ -48,7 +47,7 @@
             pointer-events: none;
         }
 
-        /* Fixed Top Right Music Control - Never overlaps heading */
+        /* Smooth Top Right Music Toggle */
         .music-ctrl {
             position: fixed;
             top: 15px;
@@ -56,29 +55,24 @@
             z-index: 2000;
             background: rgba(255, 255, 255, 0.9);
             border: 1px solid var(--luxury-border);
-            padding: 8px 15px;
+            padding: 8px 14px;
             border-radius: 30px;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            color: var(--rose-gold-dark);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            color: var(--rose-dark);
             font-family: var(--font-body);
             font-size: 10px;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
             cursor: pointer;
-            transition: all 0.4s ease;
+            transition: all 0.3s ease;
             display: none;
             align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 15px rgba(196, 123, 133, 0.15);
+            gap: 6px;
+            box-shadow: 0 4px 12px rgba(207, 141, 150, 0.12);
         }
         @media(max-width: 480px) {
-            .music-ctrl { top: 10px; right: 10px; padding: 6px 12px; font-size: 8px; }
-        }
-        .music-ctrl:hover {
-            background: #ffffff;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(196, 123, 133, 0.25);
+            .music-ctrl { top: 12px; right: 12px; padding: 6px 10px; font-size: 8px; }
         }
 
         .experience-stage {
@@ -100,8 +94,8 @@
             align-items: center;
             opacity: 0;
             pointer-events: none;
-            transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1), transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
-            transform: scale(1.03);
+            transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+            transform: scale(1.02);
             padding: 20px;
             text-align: center;
         }
@@ -112,114 +106,95 @@
             transform: scale(1);
         }
 
-        /* Luxury Glassmorphism Container with Scroll capability */
+        /* Aesthetic Glassmorphism Card */
         .luxury-card {
             background: var(--soft-white);
             border: 1px solid var(--luxury-border);
-            border-radius: 24px;
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            padding: 40px 35px;
-            max-width: 680px;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 35px 30px;
+            max-width: 560px;
             width: 100%;
-            max-height: 85vh; /* Prevents overflow from screen */
-            overflow-y: auto; /* Adds smooth custom scroll if content is long */
-            box-shadow: 0 20px 40px rgba(196, 123, 133, 0.12), inset 0 1px 0 rgba(255,255,255,0.7);
-            transform: translateY(25px);
-            transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1);
-            position: relative;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 15px 35px rgba(207, 141, 150, 0.1), inset 0 1px 0 rgba(255,255,255,0.8);
+            transform: translateY(15px);
+            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
         }
-        /* Custom Elegant Scrollbar for Luxury Card */
-        .luxury-card::-webkit-scrollbar {
-            width: 5px;
-        }
-        .luxury-card::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        .luxury-card::-webkit-scrollbar-thumb {
-            background: var(--rose-pink-soft);
-            border-radius: 10px;
-        }
+        .luxury-card::-webkit-scrollbar { width: 4px; }
+        .luxury-card::-webkit-scrollbar-thumb { background: var(--rose-main); border-radius: 4px; }
         
-        .screen.active .luxury-card {
-            transform: translateY(0);
-        }
+        .screen.active .luxury-card { transform: translateY(0); }
 
-        /* Premium Typography */
         .cinematic-title {
             font-family: var(--font-display);
-            font-weight: 500;
-            letter-spacing: 4px;
+            font-weight: 600;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            color: var(--rose-gold-dark);
-            margin-bottom: 20px;
-            line-height: 1.5;
-            font-size: 20px;
-            padding-top: 5px;
+            color: var(--rose-dark);
+            margin-bottom: 15px;
+            font-size: 18px;
         }
 
         .luxury-script {
             font-family: var(--font-script);
-            font-size: 3.8rem;
-            color: var(--rose-gold-main);
+            font-size: 3.5rem;
+            color: var(--rose-main);
             margin-bottom: 10px;
         }
 
         .gold-input {
             background: #ffffff;
             border: 1px solid var(--luxury-border);
-            padding: 14px 20px;
-            border-radius: 12px;
+            padding: 12px 18px;
+            border-radius: 10px;
             color: #332223;
             font-family: var(--font-body);
-            font-size: 16px;
-            letter-spacing: 2px;
+            font-size: 15px;
+            letter-spacing: 1.5px;
             text-align: center;
             width: 100%;
-            max-width: 260px;
-            margin-top: 20px;
+            max-width: 240px;
+            margin-top: 15px;
             outline: none;
-            box-shadow: 0 4px 10px rgba(196,123,133,0.05);
         }
         .gold-input:focus {
-            border-color: var(--rose-gold-main);
-            box-shadow: 0 0 15px rgba(196, 123, 133, 0.3);
+            border-color: var(--rose-main);
+            box-shadow: 0 0 12px rgba(207, 141, 150, 0.25);
         }
 
         .action-trigger {
-            margin-top: 25px;
-            background: linear-gradient(135deg, var(--rose-gold-main), #e09ba4);
+            margin-top: 20px;
+            background: linear-gradient(135deg, var(--rose-main), #f0aba2);
             border: none;
-            padding: 15px 40px;
-            border-radius: 30px;
+            padding: 14px 35px;
+            border-radius: 25px;
             color: #ffffff;
             font-family: var(--font-body);
             font-weight: 500;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
             font-size: 11px;
             cursor: pointer;
-            transition: all 0.4s ease;
-            box-shadow: 0 6px 18px rgba(196, 123, 133, 0.35);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(207, 141, 150, 0.25);
         }
-        .action-trigger:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 22px rgba(196, 123, 133, 0.45);
-        }
+        .action-trigger:hover { transform: translateY(-1px); }
 
-        /* Heart Control with Guide Text Fixed */
+        /* Heart Navigation Button */
         .heart-wrapper {
-            margin-top: 30px;
+            margin-top: 25px;
             display: inline-flex;
             flex-direction: column;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             width: 100%;
         }
 
         .heart-flow-btn {
-            width: 52px;
-            height: 52px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             background: #ffffff;
             border: 1px solid var(--luxury-border);
@@ -227,139 +202,72 @@
             justify-content: center;
             align-items: center;
             cursor: pointer;
-            transition: all 0.4s ease;
-            box-shadow: 0 4px 12px rgba(196, 123, 133, 0.15);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(207, 141, 150, 0.1);
         }
         .heart-flow-btn svg {
-            width: 20px;
-            height: 20px;
-            fill: var(--rose-gold-main);
-            transition: all 0.4s ease;
+            width: 18px;
+            height: 18px;
+            fill: var(--rose-main);
         }
-        .heart-flow-btn:hover {
-            border-color: var(--champagne-gold);
-            box-shadow: 0 0 15px rgba(229, 193, 88, 0.4);
-            transform: scale(1.06);
-        }
+        .heart-flow-btn:hover { transform: scale(1.05); border-color: var(--rose-main); }
 
         .heart-guide-text {
             font-family: var(--font-body);
             font-size: 9px;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
-            color: var(--rose-gold-dark);
+            color: var(--rose-dark);
             font-weight: 500;
             animation: softPulse 2s infinite ease-in-out;
         }
 
-        /* Text Area */
+        /* Text Settings */
         .typewriter-vault {
             font-family: var(--font-body);
-            font-weight: 300;
-            font-size: 15px;
-            line-height: 2;
-            letter-spacing: 0.5px;
-            color: #554143;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 1.9;
+            color: #4a3739;
             text-align: left;
-            min-height: 140px;
-            margin: 15px 0;
+            min-height: 110px;
+            margin: 10px 0;
         }
 
         .emotional-prose {
-            font-size: 15px;
-            line-height: 1.9;
-            font-weight: 300;
-            color: #554143;
-            margin-bottom: 15px;
-        }
-
-        /* Dynamic Grid Layout Fixes */
-        .luxury-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            max-width: 950px;
-            width: 100%;
-            margin-top: 20px;
-        }
-        @media(max-width: 768px) {
-            .luxury-grid { grid-template-columns: 1fr; }
-        }
-        .grid-card {
-            background: #ffffff;
-            border: 1px solid var(--luxury-border);
-            padding: 22px 18px;
-            border-radius: 16px;
-            transition: all 0.5s ease;
-            opacity: 0;
-            transform: translateY(20px);
-            box-shadow: 0 4px 15px rgba(196,123,133,0.05);
-        }
-        .screen.active .grid-card {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .grid-card h3 {
-            font-family: var(--font-display);
             font-size: 14px;
-            letter-spacing: 1.5px;
-            color: var(--rose-gold-dark);
-            margin-bottom: 10px;
-        }
-        .grid-card p {
-            font-size: 13px;
-            color: #665254;
-            line-height: 1.6;
+            line-height: 1.8;
+            font-weight: 400;
+            color: #4a3739;
+            margin-bottom: 12px;
         }
 
-        .vow-list {
-            text-align: left;
-            max-width: 500px;
-            margin: 20px auto;
-        }
-        .vow-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin: 14px 0;
-            font-size: 14px;
-            color: #554143;
-            line-height: 1.5;
-        }
-        .vow-bullet {
-            width: 6px;
-            height: 6px;
-            background: var(--rose-gold-main);
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
+        /* Small Beautiful Lists */
+        .vow-list { text-align: left; max-width: 460px; margin: 15px auto; }
+        .vow-item { display: flex; align-items: center; gap: 10px; margin: 10px 0; font-size: 13.5px; }
+        .vow-bullet { width: 5px; height: 5px; background: var(--rose-main); border-radius: 50%; flex-shrink: 0; }
 
-        /* Gatekeeper Error Toast */
         .toast-system {
             position: fixed;
-            bottom: 40px;
+            bottom: 30px;
             left: 50%;
-            transform: translateX(-50%) translateY(30px);
+            transform: translateX(-50%) translateY(20px);
             background: #ffffff;
-            border: 1px solid var(--rose-gold-main);
-            padding: 12px 25px;
-            border-radius: 30px;
-            font-size: 12px;
-            letter-spacing: 1.5px;
-            color: var(--rose-gold-dark);
+            border: 1px solid var(--rose-main);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 11px;
+            letter-spacing: 1px;
+            color: var(--rose-dark);
             opacity: 0;
-            transition: all 0.5s ease;
+            transition: all 0.4s ease;
             z-index: 10000;
-            box-shadow: 0 10px 25px rgba(196,123,133,0.2);
         }
-        .toast-system.awoken {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
-        }
+        .toast-system.awoken { opacity: 1; transform: translateX(-50%) translateY(0); }
 
         @keyframes softPulse {
-            0%, 100% { opacity: 0.5; transform: scale(0.98); }
-            50% { opacity: 1; transform: scale(1); }
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
         }
     </style>
 </head>
@@ -368,27 +276,27 @@
     <canvas id="cinemaSpace"></canvas>
     
     <button class="music-ctrl" id="musicBtn">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h6V3h-8z"/></svg>
-        Bollywood Love BGM
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h6V3h-8z"/></svg>
+        Smooth Lo-Fi Loop
     </button>
     
-    <div class="toast-system" id="gatekeeperToast">This world is reserved for Varsha ❤️</div>
+    <div class="toast-system" id="gatekeeperToast">This is just for Varsha ❤️</div>
 
     <div class="experience-stage">
 
         <div class="screen active" id="stage-gatekeeper">
-            <div class="luxury-card" style="max-width: 500px;">
-                <div class="luxury-script" style="font-size: 3rem;">Welcome</div>
-                <h1 class="cinematic-title" style="font-size: 16px; margin-bottom: 10px;">A Private World Created For Someone Very Special</h1>
+            <div class="luxury-card" style="max-width: 440px;">
+                <div class="luxury-script" style="font-size: 2.8rem;">Hey...</div>
+                <h1 class="cinematic-title" style="font-size: 14px; margin-bottom: 10px; letter-spacing: 2px;">Maine tumhare liye kuch chhota sa banaya hai.</h1>
                 <input type="text" id="passkeyField" class="gold-input" placeholder="Enter Your Name" autocomplete="off">
                 <br>
-                <button class="action-trigger" onclick="verifyIdentity()">Unlock Universe</button>
+                <button class="action-trigger" onclick="verifyIdentity()">Open It</button>
             </div>
         </div>
 
         <div class="screen" id="stage-letter">
             <div class="luxury-card">
-                <h2 class="cinematic-title">You Are My Favorite Person</h2>
+                <h2 class="cinematic-title" style="font-size: 16px;">Just Wanted to Say...</h2>
                 <div class="typewriter-vault" id="letterBox"></div>
                 
                 <div class="heart-wrapper">
@@ -400,36 +308,15 @@
             </div>
         </div>
 
-        <div class="screen" id="stage-facets">
-            <div class="luxury-card" style="max-width: 900px;">
-                <h2 class="cinematic-title" style="margin-bottom: 5px;">Things I Love About You</h2>
-                <p style="font-family: var(--font-script); font-size: 2.2rem; color: var(--rose-gold-main); margin-bottom: 15px;">Wo chhoti chhoti baatein...</p>
+        <div class="screen" id="stage-moments">
+            <div class="luxury-card">
+                <h2 class="cinematic-title" style="font-size: 16px;">My Favorite Things</h2>
                 
-                <div class="luxury-grid">
-                    <div class="grid-card" style="transition-delay: 0.1s;">
-                        <h3>Your Smile</h3>
-                        <p>Jab tum hasti ho na, sach me mera poora din badal jata hai. Wo ek bilkul natural si khushi milti hai jise lafzon me batana mushkil hai.</p>
-                    </div>
-                    <div class="grid-card" style="transition-delay: 0.2s;">
-                        <h3>Your Kindness</h3>
-                        <p>Tumhara sabko itna aadar dena aur itni softness se baat karna... Tumhara ye nishchal swabhaw mujhe har baar tumhara deewana bana deta hai.</p>
-                    </div>
-                    <div class="grid-card" style="transition-delay: 0.3s;">
-                        <h3>Your Heart</h3>
-                        <p>Ek aisa saaf aur sacha kona jahan koi chal-kapat nahi hai. Tumhare dil me mere liye jo jagah hai, wo meri zindagi ki sabse badi daulat hai.</p>
-                    </div>
-                    <div class="grid-card" style="transition-delay: 0.4s;">
-                        <h3>Your Caring Nature</h3>
-                        <p>Mera khayal rakhna, meri chhoti se chhoti baat ko notice karna... Jab koi itni fikr karta hai na, toh khud par aur zyaada guroor hone lagta hai.</p>
-                    </div>
-                    <div class="grid-card" style="transition-delay: 0.5s;">
-                        <h3>Your Personality</h3>
-                        <p>Ekdum unique aur classy. Tum me jo thehrao hai, jo samajhdaari hai, wo mujhe hamesha sahi raah par chalne ki himmat deti hai.</p>
-                    </div>
-                    <div class="grid-card" style="transition-delay: 0.6s;">
-                        <h3>Your Presence</h3>
-                        <p>Bas tum paas raho, toh lagta hai sab theek hai. Tumhari maujoodgi hi mere bhatakte hue man ko ek sukoon bhari manzil de deti hai.</p>
-                    </div>
+                <div class="vow-list">
+                    <div class="vow-item"><div class="vow-bullet"></div><p>Tumhari wo pyari si smile jisse mera kaisa bhi day ho, achha ho jata hai.</p></div>
+                    <div class="vow-item"><div class="vow-bullet"></div><p>I really love your hugs and kisses... wo feeling sabse best hoti hai.</p></div>
+                    <div class="vow-item"><div class="vow-bullet"></div><p>Hamara sath me rehna, wo choti baatein aur sath me bitaye saare moments.</p></div>
+                    <div class="vow-item"><div class="vow-bullet"></div><p>Jab tum bina kisi filter ke mujhse apne dil ki har baat share karti ho.</p></div>
                 </div>
 
                 <div class="heart-wrapper">
@@ -441,15 +328,14 @@
             </div>
         </div>
 
-        <div class="screen" id="stage-apology">
-            <div class="luxury-card" style="max-width: 620px;">
-                <h2 class="cinematic-title">My Absolute Apology</h2>
-                <div class="luxury-script" style="font-size: 2.5rem; margin-bottom: 15px;">Dil se maafi...</div>
-                <div class="emotional-prose">
-                    "Main sach me dil se maafi mangna chahta hoon un saari baaton ke liye jisse tumhara sacha dil dukha. Mera koi aisa maksad kabhi nahi hota ki main tumhe udas karoon, par meri naasamjhi se agar tumhari aankhon me thodi bhi nami aayi ho, toh mujhe us baat ka bahut afsos hai."
+        <div class="screen" id="stage-happyplace">
+            <div class="luxury-card">
+                <h2 class="cinematic-title" style="font-size: 16px;">No More Arguments...</h2>
+                <div class="emotional-prose" style="margin-top: 10px;">
+                    "Main sach me ab koi ladai ya faltu ki bahas nahi karna chahta. Main chahta hoon ki hum dono bas khush rahein, bina kisi tension ke."
                 </div>
-                <div class="emotional-prose" style="font-weight: 400; color: var(--rose-gold-dark);">
-                    "Main waada karta hoon ki main apne gusse aur apni galtiyon par kaam karunga. Ek behtar insaan aur ek saccha mard bankar dikhaunga jo tumhari har ek baat ko gehrai se samjhe aur tumhari masoomiyat ki hifazat kare."
+                <div class="emotional-prose" style="color: var(--rose-dark); font-weight: 500;">
+                    "Tumhe pata hai? Tum mera 'Happy Place' ho. Jab sab kuch ajeeb chal raha hota hai, tab tumse baat karke hi mujhe sukoon milta hai. Isiliye ab bas is rishte ko pyara aur khushnuma rakhna hai."
                 </div>
 
                 <div class="heart-wrapper">
@@ -461,58 +347,17 @@
             </div>
         </div>
 
-        <div class="screen" id="stage-promises">
-            <div class="luxury-card" style="max-width: 580px;">
-                <h2 class="cinematic-title">My Promises To You</h2>
-                <div class="luxury-script" style="font-size: 2.5rem;">Sache Waade...</div>
-                
-                <div class="vow-list">
-                    <div class="vow-item"><div class="vow-bullet"></div><p>Tumhare har sapne aur har khwahish me tumhara poora sath nibhaunga.</p></div>
-                    <div class="vow-item"><div class="vow-bullet"></div><p>Zindagi ka koi bhi mod ho, hamesha ek chatttan ban kar tumhare sath khada rahunga.</p></div>
-                    <div class="vow-item"><div class="vow-bullet"></div><p>Tumhari khushi me meri asli jeet hogi, tumhari hansi ko kabhi kam nahi hone dunga.</p></div>
-                    <div class="vow-item"><div class="vow-bullet"></div><p>Chahe halat badal jayein ya waqt, main har subah sirf aur sirf tumhe hi chununga.</p></div>
-                    <div class="vow-item"><div class="vow-bullet"></div><p>Tumhare aatmaman aur tumhari fikar karna meri zindagi ka sabse pehla farz hoga.</p></div>
-                </div>
-
-                <div class="heart-wrapper">
-                    <div class="heart-flow-btn" onclick="transitionTo(5)">
-                        <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.5 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                    </div>
-                    <span class="heart-guide-text">Click on Heart</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="screen" id="stage-future">
-            <div class="luxury-card">
-                <h2 class="cinematic-title">Our Future</h2>
-                <div class="luxury-script" style="font-size: 2.8rem;">Ek Khoobsurat Kal...</div>
-                <div class="emotional-prose" style="margin-top: 15px; font-size: 15px;">
-                    "Maine apne aane wale kal ko hamesha tumhare sath dekha hai. Ek pyara sa aashiyana jahan sirf hamara sukoon ho, dher saari baten hon, duniya bhar ki yaadein sametna aur ek sath budhe hona... Tumhara hath mere hath me ho aur zindagi ka safar bas chalta rahe."
-                </div>
-
-                <div class="heart-wrapper">
-                    <div class="heart-flow-btn" onclick="transitionTo(6)">
-                        <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.5 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                    </div>
-                    <span class="heart-guide-text">Click on Heart</span>
-                </div>
-            </div>
-        </div>
-
         <div class="screen" id="stage-finale">
-            <div class="luxury-card" style="max-width: 720px; border: 2px solid var(--rose-gold-main); box-shadow: 0 15px 45px rgba(196,123,133,0.3);">
-                <div class="luxury-script" style="font-size: 4rem; margin-bottom: 10px;">Varsha</div>
-                <div class="emotional-prose" style="font-size: 15px; line-height: 2.2; font-weight: 400;">
-                    Thank you for being part of my life.<br>
-                    Thank you for every smile.<br>
-                    Thank you for every memory.<br>
-                    <span style="color: var(--rose-gold-dark); font-weight: 500;">I don't know what the future holds,</span><br>
-                    but I know every future becomes beautiful when you are in it.<br>
-                    <span style="font-family: var(--font-script); font-size: 3.2rem; color: var(--rose-gold-main); display: block; margin: 10px 0;">I love you endlessly.</span>
+            <div class="luxury-card" style="border: 1.5px solid var(--rose-main);">
+                <div class="luxury-script" style="font-size: 3.2rem; margin-bottom: 5px;">Varsha</div>
+                <div class="emotional-prose" style="line-height: 2; font-size: 14.5px;">
+                    "Main nahi janta ki aane wala kal kaisa hoga, ya hum kab tak sath hain... Future kya hai, kisi ko nahi pata."
+                    <br><br>
+                    <span style="color: var(--rose-dark); font-weight: 500; font-size: 15px;">Par main ek baat jaanta hoon—</span><br>
+                    Jab tak hum sath hain, main tumhe hamesha dher saari care, saccha sath aur dher saara pyaar deta rahunga.
                 </div>
-                <div style="font-family: var(--font-display); font-size: 12px; letter-spacing: 4px; color: var(--rose-gold-dark); margin-top: 20px;">
-                    Forever Yours, <br><span style="font-size: 18px; font-weight: 600; color: var(--rose-gold-main);">Sagar ❤️</span>
+                <div style="font-family: var(--font-display); font-size: 11px; letter-spacing: 3px; color: var(--rose-dark); margin-top: 25px;">
+                    With you, always. <br><span style="font-size: 16px; font-weight: 600; color: var(--rose-main); display: block; margin-top: 5px;">Sagar ❤️</span>
                 </div>
             </div>
         </div>
@@ -521,72 +366,61 @@
 
     <script>
         let audioCtx = null;
-        let filterNode = null;
+        let mainFilter = null;
         let isAudioPlaying = false;
-        let melodyTimeout = null;
+        let lofiLoopId = null;
 
-        function initLoveAudio() {
+        function initLofiAudio() {
             try {
                 const AudioContext = window.AudioContext || window.webkitAudioContext;
                 audioCtx = new AudioContext();
-                filterNode = audioCtx.createBiquadFilter();
-                filterNode.type = 'lowpass';
-                filterNode.frequency.setValueAtTime(500, audioCtx.currentTime); // Rich tone filtering
+                mainFilter = audioCtx.createBiquadFilter();
+                mainFilter.type = 'lowpass';
+                mainFilter.frequency.setValueAtTime(400, audioCtx.currentTime); // Lofi muffled warm feel
             } catch(e) { console.log("Audio deferred."); }
         }
 
-        function playBollywoodAcousticNote(freq, startTime, duration, volume) {
+        function triggerLofiChord(freqs, startTime, duration, vol) {
             if (!audioCtx) return;
-            let osc = audioCtx.createOscillator();
-            let gainNode = audioCtx.createGain();
-            
-            // Combination of sine & triangle mimics a deep, soft Bollywood string/flute ambient BGM
-            osc.type = (freq > 350) ? 'sine' : 'triangle';
-            osc.frequency.setValueAtTime(freq, audioCtx.currentTime + startTime);
-            
-            gainNode.gain.setValueAtTime(0, audioCtx.currentTime + startTime);
-            gainNode.gain.linearRampToValueAtTime(volume, audioCtx.currentTime + startTime + 0.15);
-            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + startTime + duration);
-            
-            osc.connect(gainNode);
-            gainNode.connect(filterNode);
-            filterNode.connect(audioCtx.destination);
-            
-            osc.start(audioCtx.currentTime + startTime);
-            osc.stop(audioCtx.currentTime + startTime + duration);
+            freqs.forEach(f => {
+                let osc = audioCtx.createOscillator();
+                let gainNode = audioCtx.createGain();
+                
+                // Pure sine waves build the ultimate calming ambient lo-fi bedroom melody
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(f, audioCtx.currentTime + startTime);
+                
+                gainNode.gain.setValueAtTime(0, audioCtx.currentTime + startTime);
+                gainNode.gain.linearRampToValueAtTime(vol / freqs.length, audioCtx.currentTime + startTime + 0.3);
+                gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + startTime + duration);
+                
+                osc.connect(gainNode);
+                gainNode.connect(mainFilter);
+                mainFilter.connect(audioCtx.destination);
+                
+                osc.start(audioCtx.currentTime + startTime);
+                osc.stop(audioCtx.currentTime + startTime + duration);
+            });
         }
 
-        function playBollywoodBgmSequence() {
+        function runLofiAcousticLoop() {
             if (!isAudioPlaying) return;
             
-            // Pure Iconic Bollywood Love Chord Progression (Acoustic Evolving Flute/Piano Harmonies)
-            let current = 0;
-            let sequence = [
-                // Phase 1: Pure emotional pickup
-                {f: 293.66, t: 0.0, d: 2.0, v: 0.07}, // D4
-                {f: 349.23, t: 0.4, d: 2.0, v: 0.06}, // F4
-                {f: 440.00, t: 0.8, d: 2.5, v: 0.06}, // A4 (High romantic spike)
-                {f: 523.25, t: 1.2, d: 3.0, v: 0.05}, // C5
-                
-                // Phase 2: Flowing response cords
-                {f: 329.63, t: 2.5, d: 2.0, v: 0.07}, // E4
-                {f: 392.00, t: 2.9, d: 2.0, v: 0.06}, // G4
-                {f: 493.88, t: 3.3, d: 2.5, v: 0.06}, // B4
-                {f: 587.33, t: 3.7, d: 3.0, v: 0.04}  // D5
-            ];
+            // Ultra-calming, slow-moving romantic lofi chord cycles (Cmaj7 -> Fmaj7 smooth transitions)
+            triggerLofiChord([261.63, 329.63, 392.00, 493.88], 0.0, 3.5, 0.09); // Cmaj7 (Warm & comforting)
+            triggerLofiChord([349.23, 440.00, 523.25, 587.33], 4.0, 3.5, 0.08); // Fmaj7 (Dreamy & deep)
             
-            sequence.forEach(n => playBollywoodAcousticNote(n.f, n.t, n.d, n.v));
-            melodyTimeout = setTimeout(playBollywoodBgmSequence, 6500); // Perfectly synced beautiful loop
+            lofiLoopId = setTimeout(runLofiAcousticLoop, 8000);
         }
 
         function startCinematicScore() {
             if (isAudioPlaying) return;
-            if (!audioCtx) initLoveAudio();
+            if (!audioCtx) initLofiAudio();
             if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
             
             isAudioPlaying = true;
             document.getElementById('musicBtn').style.display = 'flex';
-            playBollywoodBgmSequence();
+            runLofiAcousticLoop();
         }
 
         document.getElementById('musicBtn').addEventListener('click', () => {
@@ -618,30 +452,26 @@
 
         class LuxuryNode {
             constructor(type) {
-                this.type = type; // 'star', 'petal', 'gold_dust'
+                this.type = type; // 'star', 'petal'
                 this.reset();
                 if(type === 'star') this.y = Math.random() * canvas.height;
             }
             reset() {
                 this.x = Math.random() * canvas.width;
                 this.size = Math.random() * 2 + 1;
-                this.alpha = Math.random() * 0.4 + 0.2;
+                this.alpha = Math.random() * 0.3 + 0.15;
                 
                 if(this.type === 'star') {
                     this.y = Math.random() * canvas.height;
-                    this.speedY = Math.random() * 0.15 + 0.05;
+                    this.speedY = Math.random() * 0.1 + 0.05;
                     this.speedX = (Math.random() - 0.5) * 0.05;
-                } else if(this.type === 'petal') {
-                    this.y = -20;
-                    this.size = Math.random() * 5 + 4;
-                    this.speedY = Math.random() * 0.7 + 0.4;
-                    this.speedX = Math.sin(Math.random()) * 0.3;
+                } else {
+                    this.y = -15;
+                    this.size = Math.random() * 4 + 3;
+                    this.speedY = Math.random() * 0.5 + 0.3;
+                    this.speedX = Math.sin(Math.random()) * 0.2;
                     this.angle = Math.random() * 360;
-                    this.spinSpeed = Math.random() * 0.6 - 0.3;
-                } else { 
-                    this.y = canvas.height + 10;
-                    this.speedY = Math.random() * 0.4 + 0.2;
-                    this.speedX = (Math.random() - 0.5) * 0.2;
+                    this.spinSpeed = Math.random() * 0.4 - 0.2;
                 }
             }
             update() {
@@ -649,15 +479,11 @@
                     this.y -= this.speedY;
                     this.x += this.speedX;
                     if(this.y < -10) this.reset();
-                } else if(this.type === 'petal') {
+                } else {
                     this.y += this.speedY;
                     this.x += this.speedX;
                     this.angle += this.spinSpeed;
                     if(this.y > canvas.height + 10) this.reset();
-                } else {
-                    this.y -= this.speedY;
-                    this.x += this.speedX;
-                    if(this.y < -10) this.reset();
                 }
             }
             draw() {
@@ -665,21 +491,14 @@
                 if(this.type === 'star') {
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(122, 75, 81, ${this.alpha})`;
+                    ctx.fillStyle = `rgba(110, 70, 74, ${this.alpha})`;
                     ctx.fill();
-                } else if(this.type === 'petal') {
+                } else {
                     ctx.translate(this.x, this.y);
                     ctx.rotate(this.angle * Math.PI / 180);
                     ctx.beginPath();
                     ctx.ellipse(0, 0, this.size, this.size * 0.6, 0, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(196, 123, 133, 0.45)`; // Premium soft pink petal fill
-                    ctx.fill();
-                } else {
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(223, 178, 53, ${this.alpha})`;
-                    ctx.shadowBlur = 4;
-                    ctx.shadowColor = '#dfb235';
+                    ctx.fillStyle = `rgba(207, 141, 150, 0.35)`;
                     ctx.fill();
                 }
                 ctx.restore();
@@ -688,12 +507,8 @@
 
         function regenerateAnimationEnvironment(stage) {
             elements = [];
-            let count = 65;
-            let type = 'star';
-            
-            if(stage === 1 || stage === 5) type = 'star';
-            if(stage === 2 || stage === 3) type = 'petal'; 
-            if(stage === 4 || stage === 6) type = 'gold_dust'; 
+            let count = 45; // Lower count makes it super smooth and readable
+            let type = (stage === 2 || stage === 4) ? 'petal' : 'star';
 
             for(let i = 0; i < count; i++) {
                 elements.push(new LuxuryNode(type));
@@ -701,61 +516,8 @@
         }
         regenerateAnimationEnvironment(0);
 
-        class LuxuryFirework {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = canvas.height;
-                this.targetY = Math.random() * (canvas.height * 0.4) + 60;
-                this.speed = 5;
-                this.exploded = false;
-                this.sparks = [];
-            }
-            update() {
-                if(!this.exploded) {
-                    this.y -= this.speed;
-                    if(this.y <= this.targetY) {
-                        this.exploded = true;
-                        for(let i=0; i<35; i++) {
-                            this.sparks.push({
-                                x: this.x, y: this.y,
-                                angle: Math.random() * Math.PI * 2,
-                                speed: Math.random() * 3 + 1,
-                                alpha: 1,
-                                color: Math.random() > 0.5 ? '#c47b85' : '#dfb235'
-                            });
-                        }
-                    }
-                } else {
-                    this.sparks.forEach((s, idx) => {
-                        s.x += Math.cos(s.angle) * s.speed;
-                        s.y += Math.sin(s.angle) * s.speed + 0.04;
-                        s.alpha -= 0.015;
-                        if(s.alpha <= 0) this.sparks.splice(idx, 1);
-                    });
-                }
-            }
-            draw() {
-                if(!this.exploded) {
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, 2.5, 0, Math.PI * 2);
-                    ctx.fillStyle = '#c47b85';
-                    ctx.fill();
-                } else {
-                    this.sparks.forEach(s => {
-                        ctx.beginPath();
-                        ctx.arc(s.x, s.y, 1.5, 0, Math.PI * 2);
-                        ctx.fillStyle = s.color;
-                        ctx.globalAlpha = s.alpha;
-                        ctx.fill();
-                        ctx.globalAlpha = 1;
-                    });
-                }
-            }
-        }
-        let finaleFireworks = [];
-
         function renderScene() {
-            ctx.fillStyle = 'rgba(255, 245, 246, 0.25)'; 
+            ctx.fillStyle = 'rgba(255, 246, 247, 0.3)'; 
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
             elements.forEach(el => {
@@ -763,22 +525,13 @@
                 el.draw();
             });
 
-            if(activeStageIndex === 6) {
-                if(Math.random() < 0.02) finaleFireworks.push(new LuxuryFirework());
-                for(let i = finaleFireworks.length - 1; i >= 0; i--) {
-                    finaleFireworks[i].update();
-                    finaleFireworks[i].draw();
-                    if(finaleFireworks[i].exploded && finaleFireworks[i].sparks.length === 0) finaleFireworks.splice(i,1);
-                }
-            }
-
             requestAnimationFrame(renderScene);
         }
         requestAnimationFrame(renderScene);
     </script>
 
     <script>
-        const hinglishLetter = "Varsha, jab se tum meri life me aayi ho na, sach me sab kuch badal gaya hai. Tum mere har bhatakte hue khayal ka sukoon ho, aur meri har khushi ki wajah ho. Tumne mujhe ek behtar insaan banna sikhaya hai aur meri boring si zindagi me sach rang bhare hain. Mere liye tum kya ho, ye main shayad kabhi poori tarah lafzon me na bata paoon, par itna zaroor janta hoon ki tumhare bina ab main adhoora hoon. Ye chhoti si duniya tumhare liye banayi hai... I hope ye tumhare chehre par ek pyaari si smile layegi.";
+        const naturalHinglishText = "Varsha, sach bataoon toh jab se tum meri life me aayi ho na, bohot saari cheezein badal gayi hain. Tumhare sath rehna, tumse baaten karna mujhe sach me bohot accha lagta hai. Tum mere liye sirf ek special person nahi ho, balki tum wo insaan ho jiske sath main bina soche jaisa hoon, waisa reh sakta hoon. Tumhare chehre par ye lines padhkar ek chhoti si smile aa jaye, bas isiliye maine ye chhoti si screen tumhare liye banayi hai...";
 
         function verifyIdentity() {
             const nameField = document.getElementById('passkeyField').value.trim();
@@ -802,7 +555,7 @@
             
             setTimeout(() => {
                 screens[stageNum].classList.add('active');
-            }, 80);
+            }, 50);
         }
 
         function triggerTypewriter() {
@@ -811,11 +564,11 @@
             container.innerHTML = "";
             
             function execute() {
-                if (i < hinglishLetter.length) {
-                    container.innerHTML += hinglishLetter.charAt(i);
+                if (i < naturalHinglishText.length) {
+                    container.innerHTML += naturalHinglishText.charAt(i);
                     i++;
-                    let delta = hinglishLetter.charAt(i-1) === '.' || hinglishLetter.charAt(i-1) === ',' ? 350 : 30;
-                    setTimeout(execute, delta);
+                    let delay = naturalHinglishText.charAt(i-1) === '.' || naturalHinglishText.charAt(i-1) === ',' ? 300 : 25;
+                    setTimeout(execute, delay);
                 }
             }
             execute();
