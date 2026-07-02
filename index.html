@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Private World For Varsha</title>
+    <title>A Private Universe For Varsha</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@200;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700&family=Montserrat:wght@200;300;400;500&family=Alex+Brush&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-dark: #070708;
-            --gold-primary: #d4af37;
-            --gold-light: #f3e5ab;
-            --rose-gold: #b76e79;
-            --rose-light: #e0b0ff;
-            --glass-bg: rgba(15, 15, 18, 0.7);
-            --glass-border: rgba(183, 110, 121, 0.2);
+            --bg-light: #fbf8f5;
+            --rose-gold-dark: #8c6265;
+            --rose-gold-main: #b76e79;
+            --rose-gold-light: #e8d3d5;
+            --champagne-gold: #e5c158;
+            --soft-white: rgba(255, 255, 255, 0.85);
+            --luxury-border: rgba(183, 110, 121, 0.25);
             --font-display: 'Cinzel', serif;
             --font-body: 'Montserrat', sans-serif;
-            --font-script: 'Pinyon Script', cursive;
+            --font-script: 'Alex Brush', cursive;
         }
 
         * {
@@ -33,38 +33,12 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
-            background-color: var(--bg-dark);
+            background-color: var(--bg-light);
             font-family: var(--font-body);
-            color: #ffffff;
-            cursor: none;
+            color: #4a3739;
+            cursor: default;
         }
 
-        /* Custom Premium Cursor */
-        #custom-cursor {
-            width: 8px;
-            height: 8px;
-            background: var(--gold-primary);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 10000;
-            transform: translate(-50%, -50%);
-            transition: width 0.2s, height 0.2s;
-        }
-        #custom-cursor-blur {
-            width: 40px;
-            height: 40px;
-            border: 1px solid var(--rose-gold);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            transform: translate(-50%, -50%);
-            transition: transform 0.08s ease-out;
-            opacity: 0.4;
-        }
-
-        /* Canvas Layer for Cinematic Background Effects */
         canvas {
             position: fixed;
             top: 0;
@@ -75,18 +49,19 @@
             pointer-events: none;
         }
 
-        /* Music Toggle Button */
+        /* Ambient Love Music Toggle */
         .music-ctrl {
             position: fixed;
-            top: 30px;
-            right: 30px;
+            top: 25px;
+            right: 25px;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid var(--luxury-border);
             padding: 10px 20px;
             border-radius: 30px;
             backdrop-filter: blur(10px);
-            color: var(--gold-light);
+            -webkit-backdrop-filter: blur(10px);
+            color: var(--rose-gold-dark);
             font-family: var(--font-body);
             font-size: 11px;
             letter-spacing: 2px;
@@ -96,14 +71,14 @@
             display: none;
             align-items: center;
             gap: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
         .music-ctrl:hover {
-            background: rgba(183, 110, 121, 0.2);
-            border-color: var(--rose-gold);
-            box-shadow: 0 0 15px rgba(183, 110, 121, 0.3);
+            background: var(--soft-white);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(183, 110, 121, 0.15);
         }
 
-        /* Master Section Layout */
         .experience-stage {
             position: relative;
             width: 100%;
@@ -123,9 +98,9 @@
             align-items: center;
             opacity: 0;
             pointer-events: none;
-            transition: opacity 1.5s cubic-bezier(0.25, 1, 0.5, 1), transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
-            transform: scale(1.05);
-            padding: 20px;
+            transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1), transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+            transform: scale(1.03);
+            padding: 24px;
             text-align: center;
         }
 
@@ -135,247 +110,268 @@
             transform: scale(1);
         }
 
-        /* Glassmorphic Luxury Container Base */
+        /* Luxury Glassmorphism Container */
         .luxury-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            padding: 50px 40px;
-            max-width: 700px;
+            background: var(--soft-white);
+            border: 1px solid var(--luxury-border);
+            border-radius: 24px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 50px 45px;
+            max-width: 680px;
             width: 100%;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255,255,255,0.1);
-            transform: translateY(20px);
-            transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+            box-shadow: 0 20px 40px rgba(140, 98, 101, 0.08), inset 0 1px 0 rgba(255,255,255,0.6);
+            transform: translateY(25px);
+            transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1);
         }
         .screen.active .luxury-card {
             transform: translateY(0);
         }
 
-        /* Typography Masterclasses */
+        /* Premium Typography */
         .cinematic-title {
             font-family: var(--font-display);
-            font-weight: 400;
-            letter-spacing: 6px;
+            font-weight: 500;
+            letter-spacing: 5px;
             text-transform: uppercase;
-            color: transparent;
-            background: linear-gradient(135deg, #fff 30%, var(--gold-light) 70%, var(--rose-gold) 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
+            color: var(--rose-gold-dark);
             margin-bottom: 25px;
-            line-height: 1.4;
+            line-height: 1.5;
+            font-size: 22px;
         }
 
         .luxury-script {
             font-family: var(--font-script);
-            font-size: 3.5rem;
-            color: var(--rose-gold);
-            margin-bottom: 15px;
-            text-shadow: 0 0 10px rgba(183, 110, 121, 0.3);
+            font-size: 4rem;
+            color: var(--rose-gold-main);
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.02);
         }
 
-        /* Controls & Interactive Elements */
         .gold-input {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid var(--glass-border);
-            padding: 15px 25px;
-            border-radius: 8px;
-            color: #fff;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid var(--luxury-border);
+            padding: 16px 25px;
+            border-radius: 12px;
+            color: #332223;
             font-family: var(--font-body);
             font-size: 16px;
             letter-spacing: 2px;
             text-align: center;
             width: 100%;
-            max-width: 300px;
+            max-width: 280px;
             margin-top: 20px;
             transition: all 0.4s ease;
             outline: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
         }
         .gold-input:focus {
-            border-color: var(--gold-primary);
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+            border-color: var(--rose-gold-main);
+            box-shadow: 0 0 15px rgba(183, 110, 121, 0.25);
         }
 
         .action-trigger {
             margin-top: 30px;
-            background: linear-gradient(135deg, var(--rose-gold), var(--gold-primary));
+            background: linear-gradient(135deg, var(--rose-gold-main), #dca67b);
             border: none;
-            padding: 15px 40px;
+            padding: 16px 45px;
             border-radius: 30px;
-            color: #000;
+            color: #ffffff;
             font-family: var(--font-body);
-            font-weight: 600;
+            font-weight: 500;
             letter-spacing: 3px;
             text-transform: uppercase;
             font-size: 12px;
             cursor: pointer;
             transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-            box-shadow: 0 10px 20px rgba(183, 110, 121, 0.2);
+            box-shadow: 0 8px 20px rgba(183, 110, 121, 0.3);
         }
         .action-trigger:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
-            letter-spacing: 4px;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(183, 110, 121, 0.4);
         }
 
-        /* Animated Glowing Heart Button */
+        /* Heart Container with Guide Text */
+        .heart-wrapper {
+            margin-top: 35px;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
         .heart-flow-btn {
-            margin-top: 40px;
-            width: 60px;
-            height: 60px;
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--glass-border);
+            background: #ffffff;
+            border: 1px solid var(--luxury-border);
             display: flex;
             justify-content: center;
             align-items: center;
             cursor: pointer;
-            position: relative;
             transition: all 0.4s ease;
+            box-shadow: 0 4px 12px rgba(183, 110, 121, 0.1);
         }
         .heart-flow-btn svg {
-            width: 24px;
-            height: 24px;
-            fill: var(--rose-gold);
+            width: 22px;
+            height: 22px;
+            fill: var(--rose-gold-main);
             transition: all 0.4s ease;
         }
         .heart-flow-btn:hover {
-            border-color: var(--gold-primary);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
-            transform: scale(1.05);
+            border-color: var(--champagne-gold);
+            box-shadow: 0 0 20px rgba(229, 193, 88, 0.4);
+            transform: scale(1.08);
         }
         .heart-flow-btn:hover svg {
-            fill: var(--gold-primary);
-            transform: scale(1.15);
+            fill: var(--champagne-gold);
         }
 
-        /* Screen 1: Typewriter Area */
+        .heart-guide-text {
+            font-family: var(--font-body);
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--rose-gold-dark);
+            font-weight: 500;
+            opacity: 0.8;
+            animation: softPulse 2s infinite ease-in-out;
+        }
+
+        /* Hinglish Texts */
         .typewriter-vault {
             font-family: var(--font-body);
             font-weight: 300;
             font-size: 16px;
-            line-height: 2;
-            letter-spacing: 1px;
-            color: #e0e0e0;
+            line-height: 2.1;
+            letter-spacing: 0.5px;
+            color: #554143;
             text-align: left;
             min-height: 180px;
             margin: 20px 0;
         }
 
-        /* Screen 2: Dynamic Premium Grid Layout */
+        .emotional-prose {
+            font-size: 15px;
+            line-height: 2;
+            font-weight: 300;
+            color: #554143;
+            margin-bottom: 20px;
+        }
+
+        /* Dynamic Changing Grids */
         .luxury-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
-            max-width: 1000px;
+            max-width: 950px;
             width: 100%;
-            margin-top: 30px;
+            margin-top: 25px;
         }
         @media(max-width: 768px) {
-            .luxury-grid { grid-template-columns: 1fr; max-height: 60vh; overflow-y: auto; }
-            .luxury-card { padding: 30px 20px; }
+            .luxury-grid { grid-template-columns: 1fr; max-height: 55vh; overflow-y: auto; }
         }
         .grid-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            padding: 30px 20px;
-            border-radius: 12px;
-            backdrop-filter: blur(15px);
+            background: var(--soft-white);
+            border: 1px solid var(--luxury-border);
+            padding: 28px 20px;
+            border-radius: 16px;
             transition: all 0.5s ease;
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(25px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
         }
         .screen.active .grid-card {
             opacity: 1;
             transform: translateY(0);
         }
         .grid-card:hover {
-            border-color: var(--gold-primary);
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 10px 25px rgba(212,175,55,0.15);
+            border-color: var(--rose-gold-main);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 25px rgba(183,110,121,0.12);
         }
         .grid-card h3 {
             font-family: var(--font-display);
-            font-size: 16px;
-            letter-spacing: 3px;
-            color: var(--gold-light);
-            margin-bottom: 10px;
+            font-size: 15px;
+            letter-spacing: 2px;
+            color: var(--rose-gold-dark);
+            margin-bottom: 12px;
         }
         .grid-card p {
             font-size: 13px;
-            color: #b0b0b0;
-            line-height: 1.6;
+            color: #665254;
+            line-height: 1.7;
         }
 
-        /* Screen 3 & 4 Layout Tweaks */
-        .emotional-prose {
-            font-size: 15px;
-            line-height: 1.9;
-            font-weight: 300;
-            letter-spacing: 1px;
-            color: #e5e5e5;
-            margin-bottom: 20px;
+        .vow-list {
+            text-align: left;
+            max-width: 500px;
+            margin: 25px auto;
         }
-        .promise-item {
+        .vow-item {
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 15px;
-            margin: 18px 0;
+            margin: 16px 0;
             font-size: 15px;
-            letter-spacing: 1px;
+            color: #554143;
+            line-height: 1.6;
         }
-        .promise-icon {
-            width: 8px;
-            height: 8px;
-            background: var(--gold-primary);
+        .vow-bullet {
+            width: 6px;
+            height: 6px;
+            background: var(--rose-gold-main);
             border-radius: 50%;
-            box-shadow: 0 0 8px var(--gold-primary);
+            flex-shrink: 0;
         }
 
-        /* Elegant Error Notification */
+        /* Error Notification */
         .toast-system {
             position: fixed;
             bottom: 40px;
             left: 50%;
             transform: translateX(-50%) translateY(30px);
-            background: rgba(20, 10, 12, 0.9);
-            border: 1px solid #ff4d4d;
-            padding: 15px 35px;
+            background: #ffffff;
+            border: 1px solid var(--rose-gold-main);
+            padding: 14px 30px;
             border-radius: 30px;
             font-size: 13px;
-            letter-spacing: 2px;
-            color: #ffcccc;
+            letter-spacing: 1.5px;
+            color: var(--rose-gold-dark);
             opacity: 0;
             transition: all 0.5s ease;
             z-index: 10000;
-            pointer-events: none;
-            box-shadow: 0 10px 30px rgba(255,0,0,0.2);
+            box-shadow: 0 10px 25px rgba(183,110,121,0.15);
         }
         .toast-system.awoken {
             opacity: 1;
             transform: translateX(-50%) translateY(0);
         }
+
+        @keyframes softPulse {
+            0%, 100% { opacity: 0.5; transform: scale(0.98); }
+            50% { opacity: 1; transform: scale(1); }
+        }
     </style>
 </head>
 <body>
 
-    <div id="custom-cursor"></div>
-    <div id="custom-cursor-blur"></div>
     <canvas id="cinemaSpace"></canvas>
+    
     <button class="music-ctrl" id="musicBtn">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M6 22h3V2H6v20zm6-20v20h3V2h-3zm6 0v20h3V2h-3z"/></svg>
-        Ambient Audio
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h6V3h-8z"/></svg>
+        Love Theme Audio
     </button>
+    
     <div class="toast-system" id="gatekeeperToast">This world is reserved for Varsha ❤️</div>
 
     <div class="experience-stage">
 
         <div class="screen active" id="stage-gatekeeper">
-            <div class="luxury-card" style="max-width: 550px;">
-                <div class="luxury-script">Welcome</div>
-                <h1 class="cinematic-title" style="font-size: 20px;">A Private World Created For Someone Very Special</h1>
+            <div class="luxury-card" style="max-width: 520px;">
+                <div class="luxury-script" style="font-size: 3.2rem;">Welcome</div>
+                <h1 class="cinematic-title" style="font-size: 18px; margin-bottom: 15px;">A Private World Created For Someone Very Special</h1>
                 <input type="text" id="passkeyField" class="gold-input" placeholder="Enter Your Name" autocomplete="off">
                 <br>
                 <button class="action-trigger" onclick="verifyIdentity()">Unlock Universe</button>
@@ -386,176 +382,204 @@
             <div class="luxury-card">
                 <h2 class="cinematic-title">You Are My Favorite Person</h2>
                 <div class="typewriter-vault" id="letterBox"></div>
-                <div class="heart-flow-btn" onclick="transitionTo(2)">
-                    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.5 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                
+                <div class="heart-wrapper">
+                    <div class="heart-flow-btn" onclick="transitionTo(2)">
+                        <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.5 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                    </div>
+                    <span class="heart-guide-text">Click on Heart</span>
                 </div>
             </div>
         </div>
 
         <div class="screen" id="stage-facets">
-            <h2 class="cinematic-title" style="margin-bottom: 10px;">Things I Love About You</h2>
-            <p style="font-family: var(--font-script); font-size: 2.2rem; color: var(--gold-light); margin-bottom: 20px;">Every single layer of you</p>
+            <h2 class="cinematic-title" style="margin-bottom: 5px;">Things I Love About You</h2>
+            <p style="font-family: var(--font-script); font-size: 2.2rem; color: var(--rose-gold-main); margin-bottom: 25px;">Wo chhoti chhoti baatein...</p>
+            
             <div class="luxury-grid">
                 <div class="grid-card" style="transition-delay: 0.1s;">
                     <h3>Your Smile</h3>
-                    <p>An innocent ray of brilliant light that instantly disarms my darkest days and makes time stand still.</p>
+                    <p>Jab tum hasti ho na, sach me mera poora din badal jata hai. Wo ek bilkul natural si khushi milti hai jise lafzon me batana mushkil hai.</p>
                 </div>
                 <div class="grid-card" style="transition-delay: 0.2s;">
                     <h3>Your Kindness</h3>
-                    <p>The graceful, beautiful way you treat the world around you with absolute softness and purity.</p>
+                    <p>Tumhara sabko itna aadar dena aur itni softness se baat karna... Tumhara ye nishchal swabhaw mujhe har baar tumhara deewana bana deta hai.</p>
                 </div>
                 <div class="grid-card" style="transition-delay: 0.3s;">
                     <h3>Your Heart</h3>
-                    <p>A safe, golden sanctuary where love exists without terms, boundaries, or limitations.</p>
+                    <p>Ek aisa saaf aur sacha kona jahan koi chal-kapat nahi hai. Tumhare dil me mere liye jo jagah hai, wo meri zindagi ki sabse badi daulat hai.</p>
                 </div>
                 <div class="grid-card" style="transition-delay: 0.4s;">
                     <h3>Your Caring Nature</h3>
-                    <p>The protective, gentle warmth you wrap me in, noticing every quiet sigh and unspoken thought.</p>
+                    <p>Mera khayal rakhna, meri chhoti se chhoti baat ko notice karna... Jab koi itni fikr karta hai na, toh khud par aur zyaada guroor hone lagta hai.</p>
                 </div>
                 <div class="grid-card" style="transition-delay: 0.5s;">
                     <h3>Your Personality</h3>
-                    <p>An exquisite, radiant blend of wisdom, sharp wit, and an elegance that completely captivates me.</p>
+                    <p>Ekdum unique aur classy. Tum me jo thehrao hai, jo samajhdaari hai, wo mujhe hamesha sahi raah par chalne ki himmat deti hai.</p>
                 </div>
                 <div class="grid-card" style="transition-delay: 0.6s;">
                     <h3>Your Presence</h3>
-                    <p>Just being in the same room as you fills my entire soul with absolute balance, comfort, and peace.</p>
+                    <p>Bas tum paas raho, toh lagta hai sab theek hai. Tumhari maujoodgi hi mere bhatakte hue man ko ek sukoon bhari manzil de deti hai.</p>
                 </div>
             </div>
-            <div class="heart-flow-btn" onclick="transitionTo(3)">
-                <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.5 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+
+            <div class="heart-wrapper">
+                <div class="heart-flow-btn" onclick="transitionTo(3)">
+                    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.5 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                </div>
+                <span class="heart-guide-text">Click on Heart</span>
             </div>
         </div>
 
         <div class="screen" id="stage-apology">
-            <div class="luxury-card" style="max-width: 650px; background: rgba(12, 8, 9, 0.85); border-color: rgba(183,110,121,0.3);">
+            <div class="luxury-card" style="max-width: 620px;">
                 <h2 class="cinematic-title">My Absolute Apology</h2>
-                <div class="luxury-script" style="font-size: 2.5rem; margin-bottom: 25px;">Forgive me, my love</div>
+                <div class="luxury-script" style="font-size: 2.5rem; margin-bottom: 20px;">Dil se maafi...</div>
                 <div class="emotional-prose">
-                    "I am deeply, truly sorry for the moments I caused your beautiful heart to ache. Seeing you hurt or sad because of me breaks something deep inside my soul. You deserve absolute gentleness, and I have fallen short."
+                    "Main sach me dil se maafi mangna chahta hoon un saari baaton ke liye jisse tumhara sacha dil dukha. Mera koi aisa maksad kabhi nahi hota ki main tumhe udas karoon, par meri naasamjhi se agar tumhari aankhon me thodi bhi nami aayi ho, toh mujhe us baat ka bahut afsos hai."
                 </div>
-                <div class="emotional-prose">
-                    "This is my solemn promise to consciously improve every single day. To listen more deeply, protect your peace, understand you better, and mature into the modern, high-caliber gentleman you truly deserve by your side."
+                <div class="emotional-prose" style="font-weight: 400; color: var(--rose-gold-dark);">
+                    "Main waada karta hoon ki main apne gusse aur apni galtiyon par kaam karunga. Ek behtar insaan aur ek saccha mard bankar dikhaunga jo tumhari har ek baat ko gehrai se samjhe aur tumhari masoomiyat ki hifazat kare."
                 </div>
-                <div class="heart-flow-btn" onclick="transitionTo(4)">
-                    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.5 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+
+                <div class="heart-wrapper">
+                    <div class="heart-flow-btn" onclick="transitionTo(4)">
+                        <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.5 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                    </div>
+                    <span class="heart-guide-text">Click on Heart</span>
                 </div>
             </div>
         </div>
 
         <div class="screen" id="stage-promises">
-            <div class="luxury-card" style="max-width: 600px;">
-                <h2 class="cinematic-title">My Vows To You</h2>
-                <div style="margin: 25px 0; text-align: left; padding-left: 20px;">
-                    <div class="promise-item"><div class="promise-icon"></div><p>I will passionately support your grandest dreams and highest ambitions.</p></div>
-                    <div class="promise-item"><div class="promise-icon"></div><p>I will stand beside you like a fortress through every shifting storm.</p></div>
-                    <div class="promise-item"><div class="promise-icon"></div><p>I will celebrate your happiness as if it were my very own success.</p></div>
-                    <div class="promise-item"><div class="promise-icon"></div><p>I will never, for a single heartbeat, stop actively choosing you.</p></div>
-                    <div class="promise-item"><div class="promise-icon"></div><p>I will carefully look after, honor, and protect your mind and body forever.</p></div>
+            <div class="luxury-card" style="max-width: 580px;">
+                <h2 class="cinematic-title">My Promises To You</h2>
+                <div class="luxury-script" style="font-size: 2.5rem;">Sache Waade...</div>
+                
+                <div class="vow-list">
+                    <div class="vow-item"><div class="vow-bullet"></div><p>Tumhare har sapne aur har khwahish me tumhara poora sath nibhaunga.</p></div>
+                    <div class="vow-item"><div class="vow-bullet"></div><p>Zindagi ka koi bhi mod ho, hamesha ek chatttan ban kar tumhare sath khada rahunga.</p></div>
+                    <div class="vow-item"><div class="vow-bullet"></div><p>Tumhari khushi me meri asli jeet hogi, tumhari hansi ko kabhi kam nahi hone dunga.</p></div>
+                    <div class="vow-item"><div class="vow-bullet"></div><p>Chahe halat badal jayein ya waqt, main har subah sirf aur sirf tumhe hi chununga.</p></div>
+                    <div class="vow-item"><div class="vow-bullet"></div><p>Tumhare aatmaman aur tumhari fikar karna meri zindagi ka sabse pehla farz hoga.</p></div>
                 </div>
-                <div class="heart-flow-btn" onclick="transitionTo(5)">
-                    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.5 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+
+                <div class="heart-wrapper">
+                    <div class="heart-flow-btn" onclick="transitionTo(5)">
+                        <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.5 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                    </div>
+                    <span class="heart-guide-text">Click on Heart</span>
                 </div>
             </div>
         </div>
 
         <div class="screen" id="stage-future">
             <div class="luxury-card">
-                <h2 class="cinematic-title">Our Horizon</h2>
-                <div class="luxury-script" style="font-size: 2.8rem;">Building an Empire of Memories</div>
-                <div class="emotional-prose" style="margin-top: 25px; font-size: 16px;">
-                    "I see a magnificent future awaiting us. One where we travel the world, establish our own beautiful sanctuary of peace, build timeless memories, and quietly grow old together side by side. Your hand in mine, through everything."
+                <h2 class="cinematic-title">Our Future</h2>
+                <div class="luxury-script" style="font-size: 2.8rem;">Ek Khoobsurat Kal...</div>
+                <div class="emotional-prose" style="margin-top: 20px; font-size: 16px;">
+                    "Maine apne aane wale kal ko hamesha tumhare sath dekha hai. Ek pyara sa aashiyana jahan sirf hamara sukoon ho, dher saari baten hon, duniya bhar ki yaadein sametna aur ek sath budhe hona... Tumhara hath mere hath me ho aur zindagi ka safar bas chalta rahe."
                 </div>
-                <div class="heart-flow-btn" onclick="transitionTo(6)">
-                    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.5 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+
+                <div class="heart-wrapper">
+                    <div class="heart-flow-btn" onclick="transitionTo(6)">
+                        <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.5 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                    </div>
+                    <span class="heart-guide-text">Click on Heart</span>
                 </div>
             </div>
         </div>
 
         <div class="screen" id="stage-finale">
-            <div class="luxury-card" style="max-width: 750px; background: rgba(5, 4, 5, 0.9); border: 2px solid var(--gold-primary); box-shadow: 0 0 50px rgba(212,175,55,0.25);">
-                <div class="luxury-script" style="font-size: 4rem;">Varsha</div>
-                <div class="emotional-prose" style="font-size: 16px; line-height: 2.2; text-align: center; font-weight: 400;">
+            <div class="luxury-card" style="max-width: 720px; border: 2px solid var(--rose-gold-main); box-shadow: 0 15px 45px rgba(183,110,121,0.25);">
+                <div class="luxury-script" style="font-size: 4rem; margin-bottom: 15px;">Varsha</div>
+                <div class="emotional-prose" style="font-size: 16px; line-height: 2.3; font-weight: 400;">
                     Thank you for being part of my life.<br>
-                    Thank you for every genuine smile.<br>
-                    Thank you for every unforgettable memory.<br>
-                    <span style="color: var(--gold-light); font-weight: 500;">I don't know what the future holds,</span><br>
+                    Thank you for every smile.<br>
+                    Thank you for every memory.<br>
+                    <span style="color: var(--rose-gold-dark); font-weight: 500;">I don't know what the future holds,</span><br>
                     but I know every future becomes beautiful when you are in it.<br>
-                    <span style="font-family: var(--font-script); font-size: 3rem; color: var(--rose-gold); display: block; margin: 20px 0;">I love you endlessly.</span>
+                    <span style="font-family: var(--font-script); font-size: 3.2rem; color: var(--rose-gold-main); display: block; margin: 15px 0;">I love you endlessly.</span>
                 </div>
-                <div style="font-family: var(--font-display); font-size: 12px; letter-spacing: 4px; color: var(--gold-primary); margin-top: 30px; text-transform: uppercase;">
-                    Forever Yours, <br><span style="font-size: 18px; font-weight: 600; letter-spacing: 2px;">Sagar ❤️</span>
+                <div style="font-family: var(--font-display); font-size: 13px; letter-spacing: 4px; color: var(--rose-gold-dark); margin-top: 25px;">
+                    Forever Yours, <br><span style="font-size: 19px; font-weight: 600; color: var(--rose-gold-main);">Sagar ❤️</span>
                 </div>
             </div>
         </div>
 
     </div>
 
-    <script>
+    <script strain="love-ambient">
         let audioCtx = null;
-        let mainOsc = null;
         let filterNode = null;
         let isAudioPlaying = false;
 
-        function initLuxuryAudio() {
+        function initLoveAudio() {
             try {
                 const AudioContext = window.AudioContext || window.webkitAudioContext;
                 audioCtx = new AudioContext();
-                
-                // Create soft custom cinematic ambient soundscape
                 filterNode = audioCtx.createBiquadFilter();
                 filterNode.type = 'lowpass';
-                filterNode.frequency.setValueAtTime(350, audioCtx.currentTime);
-
-                // Simple modulation for an organic, breathing pads sound
-                setInterval(() => {
-                    if(isAudioPlaying && filterNode) {
-                        let modFreq = 300 + Math.sin(Date.now() * 0.0005) * 80;
-                        filterNode.frequency.exponentialRampToValueAtTime(modFreq, audioCtx.currentTime + 0.4);
-                    }
-                }, 500);
-            } catch(e) { console.log("Audio setup deferred."); }
+                filterNode.frequency.setValueAtTime(450, audioCtx.currentTime);
+            } catch(e) { console.log("Audio deferred."); }
         }
 
-        function playAmbientChord(freq, type = 'triangle', volume = 0.04) {
+        function createPianoNote(freq, startTime, duration, volume) {
             if (!audioCtx) return;
             let osc = audioCtx.createOscillator();
             let gainNode = audioCtx.createGain();
             
-            osc.type = type;
-            osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+            // Soft triangle wave closely mimics standard slow cinematic romance piano keys
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(freq, audioCtx.currentTime + startTime);
             
-            gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
-            gainNode.gain.linearRampToValueAtTime(volume, audioCtx.currentTime + 2);
+            gainNode.gain.setValueAtTime(0, audioCtx.currentTime + startTime);
+            gainNode.gain.linearRampToValueAtTime(volume, audioCtx.currentTime + startTime + 0.1);
+            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + startTime + duration);
             
-            osc.connect(filterNode);
-            filterNode.connect(gainNode);
-            gainNode.connect(audioCtx.destination);
-            osc.start();
+            osc.connect(gainNode);
+            gainNode.connect(filterNode);
+            filterNode.connect(audioCtx.destination);
             
-            return { osc, gain: gainNode };
+            osc.start(audioCtx.currentTime + startTime);
+            osc.stop(audioCtx.currentTime + startTime + duration);
         }
 
-        let runningNodes = [];
+        function playLoveMelodyLoop() {
+            if (!isAudioPlaying) return;
+            
+            // Pure emotional progression (Db Major / Bb minor slow romance acoustic melody)
+            let notes = [
+                {f: 220.00, t: 0.0, d: 2.5, v: 0.08}, // A3
+                {f: 277.18, t: 0.5, d: 2.0, v: 0.06}, // Db4
+                {f: 329.63, t: 1.0, d: 2.0, v: 0.06}, // E4
+                {f: 440.00, t: 1.5, d: 3.0, v: 0.05}, // A4
+                
+                {f: 246.94, t: 3.0, d: 2.5, v: 0.08}, // B3
+                {f: 293.66, t: 3.5, d: 2.0, v: 0.06}, // D4
+                {f: 392.00, t: 4.0, d: 2.0, v: 0.06}, // G4
+                {f: 493.88, t: 4.5, d: 3.0, v: 0.05}  // B4
+            ];
+            
+            notes.forEach(n => createPianoNote(n.f, n.t, n.d, n.v));
+            setTimeout(playLoveMelodyLoop, 6000); // Continuous loop
+        }
+
         function startCinematicScore() {
             if (isAudioPlaying) return;
-            if (!audioCtx) initLuxuryAudio();
+            if (!audioCtx) initLoveAudio();
             if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
             
             isAudioPlaying = true;
             document.getElementById('musicBtn').style.display = 'flex';
-            
-            // Play an elegant, warm, evolving luxury love chord (Db Major / Ab base)
-            runningNodes.push(playAmbientChord(138.59, 'sawtooth', 0.02)); // Db3
-            runningNodes.push(playAmbientChord(207.65, 'triangle', 0.05)); // Ab3
-            runningNodes.push(playAmbientChord(261.63, 'triangle', 0.04)); // C4
-            runningNodes.push(playAmbientChord(349.23, 'triangle', 0.03)); // F4
+            playLoveMelodyLoop();
         }
 
         document.getElementById('musicBtn').addEventListener('click', () => {
             if(audioCtx) {
                 if(audioCtx.state === 'running') {
                     audioCtx.suspend();
-                    document.getElementById('musicBtn').style.opacity = 0.5;
+                    document.getElementById('musicBtn').style.opacity = 0.4;
                 } else {
                     audioCtx.resume();
                     document.getElementById('musicBtn').style.opacity = 1;
@@ -568,10 +592,7 @@
         const canvas = document.getElementById('cinemaSpace');
         const ctx = canvas.getContext('2d');
 
-        let particles = [];
-        let fireworks = [];
-        let rosePetals = [];
-        let mouse = { x: -1000, y: -1000, targetX: -1000, targetY: -1000 };
+        let elements = [];
         let activeStageIndex = 0;
 
         function resizeCanvas() {
@@ -581,139 +602,134 @@
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
 
-        // High-end Cursor Tracking
-        window.addEventListener('mousemove', (e) => {
-            mouse.targetX = e.clientX;
-            mouse.targetY = e.clientY;
-        });
-
-        function updateCursor() {
-            if(mouse.x === -1000) {
-                mouse.x = mouse.targetX;
-                mouse.y = mouse.targetY;
-            }
-            mouse.x += (mouse.targetX - mouse.x) * 0.12;
-            mouse.y += (mouse.targetY - mouse.y) * 0.12;
-            
-            const cursor = document.getElementById('custom-cursor');
-            const blur = document.getElementById('custom-cursor-blur');
-            
-            cursor.style.left = mouse.targetX + 'px';
-            cursor.style.top = mouse.targetY + 'px';
-            
-            blur.style.left = mouse.x + 'px';
-            blur.style.top = mouse.y + 'px';
-            
-            requestAnimationFrame(updateCursor);
-        }
-        requestAnimationFrame(updateCursor);
-
-        // Core Particle Factory
-        class GoldParticle {
-            constructor() {
+        // Custom Unique Particle Archetypes per Stage Requirement
+        class LuxuryNode {
+            constructor(type) {
+                this.type = type; // 'star', 'petal', 'gold_dust', 'sparkle', 'firework'
                 this.reset();
-                this.y = Math.random() * canvas.height; 
+                if(type === 'star') this.y = Math.random() * canvas.height;
             }
             reset() {
                 this.x = Math.random() * canvas.width;
-                this.y = canvas.height + 20;
-                this.size = Math.random() * 2 + 0.5;
-                this.speedY = Math.random() * 0.6 + 0.2;
-                this.speedX = Math.sin(Math.random() * 2) * 0.3;
-                this.alpha = Math.random() * 0.5 + 0.2;
-                this.color = Math.random() > 0.4 ? 'rgba(212, 175, 55, ' : 'rgba(183, 110, 121, ';
+                this.size = Math.random() * 2 + 1;
+                this.alpha = Math.random() * 0.4 + 0.2;
+                
+                if(this.type === 'star') {
+                    this.y = Math.random() * canvas.height;
+                    this.speedY = Math.random() * 0.15 + 0.05;
+                    this.speedX = (Math.random() - 0.5) * 0.05;
+                } else if(this.type === 'petal') {
+                    this.y = -20;
+                    this.size = Math.random() * 6 + 5;
+                    this.speedY = Math.random() * 0.8 + 0.5;
+                    this.speedX = Math.sin(Math.random()) * 0.4;
+                    this.angle = Math.random() * 360;
+                    this.spinSpeed = Math.random() * 0.8 - 0.4;
+                } else { // Gold sparkles / dust particles
+                    this.y = canvas.height + 10;
+                    this.speedY = Math.random() * 0.4 + 0.2;
+                    this.speedX = (Math.random() - 0.5) * 0.2;
+                }
             }
             update() {
-                this.y -= this.speedY;
-                this.x += this.speedX;
-                if (this.y < -10 || this.x < -10 || this.x > canvas.width + 10) {
-                    this.reset();
+                if(this.type === 'star') {
+                    this.y -= this.speedY;
+                    this.x += this.speedX;
+                    if(this.y < -10) this.reset();
+                } else if(this.type === 'petal') {
+                    this.y += this.speedY;
+                    this.x += this.speedX;
+                    this.angle += this.spinSpeed;
+                    if(this.y > canvas.height + 10) this.reset();
+                } else {
+                    this.y -= this.speedY;
+                    this.x += this.speedX;
+                    if(this.y < -10) this.reset();
                 }
             }
             draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = this.color + this.alpha + ')';
-                ctx.shadowBlur = activeStageIndex === 6 ? 10 : 0;
-                ctx.shadowColor = '#d4af37';
-                ctx.fill();
-                ctx.shadowBlur = 0;
-            }
-        }
-
-        class RosePetal {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = -20;
-                this.size = Math.random() * 8 + 6;
-                this.speedY = Math.random() * 1 + 0.8;
-                this.spin = Math.random() * 360;
-                this.spinSpeed = Math.random() * 1 - 0.5;
-                this.wind = Math.random() * 0.5 - 0.25;
-            }
-            update() {
-                this.y += this.speedY;
-                this.x += this.wind;
-                this.spin += this.spinSpeed;
-            }
-            draw() {
                 ctx.save();
-                ctx.translate(this.x, this.y);
-                ctx.rotate(this.spin * Math.PI / 180);
-                ctx.beginPath();
-                // Elegant curve simulation for luxury rose petals
-                ctx.ellipse(0, 0, this.size, this.size * 0.6, 0, 0, Math.PI * 2);
-                ctx.fillStyle = 'linear-gradient(to right, #b76e79, #800020)';
-                ctx.fillStyle = `rgba(${150 + Math.floor(Math.random()*40)}, 70, 90, 0.75)`;
-                ctx.fill();
+                if(this.type === 'star') {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(140, 98, 101, ${this.alpha})`;
+                    ctx.fill();
+                } else if(this.type === 'petal') {
+                    ctx.translate(this.x, this.y);
+                    ctx.rotate(this.angle * Math.PI / 180);
+                    ctx.beginPath();
+                    ctx.ellipse(0, 0, this.size, this.size * 0.6, 0, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(183, 110, 121, 0.45)`;
+                    ctx.fill();
+                } else {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(229, 193, 88, ${this.alpha})`;
+                    ctx.shadowBlur = 4;
+                    ctx.shadowColor = '#e5c158';
+                    ctx.fill();
+                }
                 ctx.restore();
             }
         }
 
-        class Firework {
-            constructor(x, targetY) {
-                this.x = x;
+        // Fresh dynamic allocation when screens shift
+        function regenerateAnimationEnvironment(stage) {
+            elements = [];
+            let count = 70;
+            let type = 'star';
+            
+            if(stage === 1 || stage === 5) type = 'star';
+            if(stage === 2 || stage === 3) type = 'petal'; // Soft Rose Petal rain for things I love/apology
+            if(stage === 4 || stage === 6) type = 'gold_dust'; // Sparkling premium vow gold dust
+
+            for(let i = 0; i < count; i++) {
+                elements.push(new LuxuryNode(type));
+            }
+        }
+        regenerateAnimationEnvironment(0);
+
+        // Grand Finale Fireworks Class
+        class LuxuryFirework {
+            constructor() {
+                this.x = Math.random() * canvas.width;
                 this.y = canvas.height;
-                this.targetY = targetY;
-                this.speed = 4 + Math.random() * 3;
+                this.targetY = Math.random() * (canvas.height * 0.4) + 60;
+                this.speed = 5;
                 this.exploded = false;
                 this.sparks = [];
             }
             update() {
-                if (!this.exploded) {
+                if(!this.exploded) {
                     this.y -= this.speed;
-                    if (this.y <= this.targetY) {
+                    if(this.y <= this.targetY) {
                         this.exploded = true;
-                        for (let i = 0; i < 60; i++) {
+                        for(let i=0; i<40; i++) {
                             this.sparks.push({
-                                x: this.x,
-                                y: this.y,
+                                x: this.x, y: this.y,
                                 angle: Math.random() * Math.PI * 2,
-                                speed: Math.random() * 4 + 1,
+                                speed: Math.random() * 3 + 1,
                                 alpha: 1,
-                                decay: Math.random() * 0.015 + 0.01,
-                                color: Math.random() > 0.5 ? '#d4af37' : '#b76e79'
+                                color: Math.random() > 0.5 ? '#b76e79' : '#e5c158'
                             });
                         }
                     }
                 } else {
-                    for (let i = this.sparks.length - 1; i >= 0; i--) {
-                        let s = this.sparks[i];
+                    this.sparks.forEach((s, idx) => {
                         s.x += Math.cos(s.angle) * s.speed;
-                        s.y += Math.sin(s.angle) * s.speed + 0.05; // gravity pull
-                        s.alpha -= s.decay;
-                        if (s.alpha <= 0) this.sparks.splice(i, 1);
-                    }
+                        s.y += Math.sin(s.angle) * s.speed + 0.04;
+                        s.alpha -= 0.015;
+                        if(s.alpha <= 0) this.sparks.splice(idx, 1);
+                    });
                 }
             }
             draw() {
-                if (!this.exploded) {
+                if(!this.exploded) {
                     ctx.beginPath();
-                    ctx.arc(this.x, this.y, 2, 0, Math.PI * 2);
-                    ctx.fillStyle = '#fff';
+                    ctx.arc(this.x, this.y, 2.5, 0, Math.PI * 2);
+                    ctx.fillStyle = '#b76e79';
                     ctx.fill();
                 } else {
-                    s.shadowBlur = 10;
                     this.sparks.forEach(s => {
                         ctx.beginPath();
                         ctx.arc(s.x, s.y, 1.5, 0, Math.PI * 2);
@@ -725,115 +741,78 @@
                 }
             }
         }
+        let finaleFireworks = [];
 
-        // Initialize particles
-        for (let i = 0; i < 120; i++) {
-            particles.push(new GoldParticle());
-        }
-
-        // Main Atmospheric Render Loop
-        function renderCinematicLoop() {
-            ctx.fillStyle = 'rgba(7, 7, 8, 0.15)'; // Dynamic trails mimic high-end screen refresh
+        // Animation Master Loop
+        function renderScene() {
+            ctx.fillStyle = 'rgba(251, 248, 245, 0.2)'; // Fluid luxury trail refresh
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            // Subtle Premium Lens Flares / Follow Light
-            if (mouse.x !== -1000) {
-                let gradient = ctx.createRadialGradient(mouse.x, mouse.y, 10, mouse.x, mouse.y, 350);
-                gradient.addColorStop(0, 'rgba(183, 110, 121, 0.04)');
-                gradient.addColorStop(1, 'rgba(0,0,0,0)');
-                ctx.fillStyle = gradient;
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
-            }
-
-            // Update & Render Core Particles
-            particles.forEach(p => {
-                p.update();
-                p.draw();
+            elements.forEach(el => {
+                el.update();
+                el.draw();
             });
 
-            // Special Effects for Apology & Promise Stages
-            if (activeStageIndex >= 3 && Math.random() < 0.04) {
-                rosePetals.push(new RosePetal());
-            }
-            for (let i = rosePetals.length - 1; i >= 0; i--) {
-                rosePetals[i].update();
-                rosePetals[i].draw();
-                if (rosePetals[i].y > canvas.height + 20) rosePetals.splice(i, 1);
-            }
-
-            // Finale Fireworks Burst
-            if (activeStageIndex === 6) {
-                if (Math.random() < 0.03) {
-                    fireworks.push(new Firework(Math.random() * canvas.width, Math.random() * (canvas.height * 0.5) + 50));
-                }
-                for (let i = fireworks.length - 1; i >= 0; i--) {
-                    fireworks[i].update();
-                    fireworks[i].draw();
-                    if (fireworks[i].exploded && fireworks[i].sparks.length === 0) {
-                        fireworks.splice(i, 1);
-                    }
+            if(activeStageIndex === 6) {
+                if(Math.random() < 0.025) finaleFireworks.push(new LuxuryFirework());
+                for(let i = finaleFireworks.length - 1; i >= 0; i--) {
+                    finaleFireworks[i].update();
+                    finaleFireworks[i].draw();
+                    if(finaleFireworks[i].exploded && finaleFireworks[i].sparks.length === 0) finaleFireworks.splice(i,1);
                 }
             }
 
-            requestAnimationFrame(renderCinematicLoop);
+            requestAnimationFrame(renderScene);
         }
-        requestAnimationFrame(renderCinematicLoop);
+        requestAnimationFrame(renderScene);
     </script>
 
     <script>
-        const letterText = "Varsha, from the exact moment you entered my world, everything changed. You became the beautiful rhythm behind my heartbeat, the calm within every single storm, and the brightest light guiding my path. Your love has completely transformed me into a better man. You are entirely irreplaceable, deeply cherished, and profoundly important to me. This space is exclusively yours—just like my heart—forever.";
-        
+        const hinglishLetter = "Varsha, jab se tum meri life me aayi ho na, sach me sab kuch badal gaya hai. Tum mere har bhatakte hue khayal ka sukoon ho, aur meri har khushi ki wajah ho. Tumne mujhe ek behtar insaan banna sikhaya hai aur meri boring si zindagi me sach rang bhare hain. Mere liye tum kya ho, ye main shayad kabhi poori tarah lafzon me na bata paoon, par itna zaroor janta hoon ki tumhare bina ab main adhoora hoon. Ye chhoti si duniya tumhare liye banayi hai... I hope ye tumhare chehre par ek pyaari si smile layegi.";
+
         function verifyIdentity() {
-            const inputName = document.getElementById('passkeyField').value.trim();
-            if (inputName.toLowerCase() === 'varsha') {
+            const nameField = document.getElementById('passkeyField').value.trim();
+            if(nameField.toLowerCase() === 'varsha') {
                 startCinematicScore();
                 transitionTo(1);
-                setTimeout(triggerTypewriter, 1200);
+                setTimeout(triggerTypewriter, 1000);
             } else {
                 const toast = document.getElementById('gatekeeperToast');
                 toast.classList.add('awoken');
-                setTimeout(() => { toast.classList.remove('awoken'); }, 3500);
+                setTimeout(() => { toast.classList.remove('awoken'); }, 3000);
             }
         }
 
         function transitionTo(stageNum) {
             activeStageIndex = stageNum;
+            regenerateAnimationEnvironment(stageNum);
+            
             const screens = document.querySelectorAll('.screen');
             screens.forEach(s => s.classList.remove('active'));
             
             setTimeout(() => {
                 screens[stageNum].classList.add('active');
-            }, 100);
-
-            // Audio shift accentuates major cinematic screen actions
-            if(audioCtx && isAudioPlaying) {
-                filterNode.frequency.setValueAtTime(120, audioCtx.currentTime);
-                filterNode.frequency.exponentialRampToValueAtTime(450, audioCtx.currentTime + 1.2);
-            }
+            }, 80);
         }
 
         function triggerTypewriter() {
-            const vault = document.getElementById('letterBox');
-            let idx = 0;
-            vault.innerHTML = "";
+            const container = document.getElementById('letterBox');
+            let i = 0;
+            container.innerHTML = "";
             
-            function type() {
-                if (idx < letterText.length) {
-                    vault.innerHTML += letterText.charAt(idx);
-                    idx++;
-                    // Variable speeds emulate authentic human reading cadence
-                    let speed = letterText.charAt(idx-1) === '.' || letterText.charAt(idx-1) === ',' ? 400 : 35;
-                    setTimeout(type, speed);
+            function execute() {
+                if (i < hinglishLetter.length) {
+                    container.innerHTML += hinglishLetter.charAt(i);
+                    i++;
+                    let delta = hinglishLetter.charAt(i-1) === '.' || hinglishLetter.charAt(i-1) === ',' ? 350 : 30;
+                    setTimeout(execute, delta);
                 }
             }
-            type();
+            execute();
         }
 
-        // Allow entering by pressing enter on input field
-        document.getElementById('passkeyField').addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') {
-                verifyIdentity();
-            }
+        document.getElementById('passkeyField').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') verifyIdentity();
         });
     </script>
 </body>
