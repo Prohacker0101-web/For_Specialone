@@ -10,9 +10,9 @@
     
     <style>
         :root {
-            --bg-light: #fff6f7; /* Very soft pastel pinkish white */
+            --bg-light: #fff6f7; 
             --rose-dark: #6e464a;
-            --rose-main: #cf8d96; /* Soft aesthetic pink */
+            --rose-main: #cf8d96; 
             --rose-soft: #fcdbd0;
             --soft-white: rgba(255, 255, 255, 0.94);
             --luxury-border: rgba(207, 141, 150, 0.25);
@@ -37,6 +37,7 @@
             color: #443335;
         }
 
+        /* High Performance Visual Canvas */
         canvas {
             position: fixed;
             top: 0;
@@ -47,7 +48,6 @@
             pointer-events: none;
         }
 
-        /* Smooth Top Right Music Toggle */
         .music-ctrl {
             position: fixed;
             top: 15px;
@@ -94,8 +94,8 @@
             align-items: center;
             opacity: 0;
             pointer-events: none;
-            transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1);
-            transform: scale(1.02);
+            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+            transform: scale(1.05);
             padding: 20px;
             text-align: center;
         }
@@ -106,7 +106,6 @@
             transform: scale(1);
         }
 
-        /* Aesthetic Glassmorphism Card */
         .luxury-card {
             background: var(--soft-white);
             border: 1px solid var(--luxury-border);
@@ -116,11 +115,11 @@
             padding: 35px 30px;
             max-width: 560px;
             width: 100%;
-            max-height: 80vh;
+            max-height: 82vh;
             overflow-y: auto;
             box-shadow: 0 15px 35px rgba(207, 141, 150, 0.1), inset 0 1px 0 rgba(255,255,255,0.8);
-            transform: translateY(15px);
-            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+            transform: translateY(20px);
+            transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
         }
         .luxury-card::-webkit-scrollbar { width: 4px; }
         .luxury-card::-webkit-scrollbar-thumb { background: var(--rose-main); border-radius: 4px; }
@@ -134,7 +133,7 @@
             text-transform: uppercase;
             color: var(--rose-dark);
             margin-bottom: 15px;
-            font-size: 18px;
+            font-size: 17px;
         }
 
         .luxury-script {
@@ -142,6 +141,25 @@
             font-size: 3.5rem;
             color: var(--rose-main);
             margin-bottom: 10px;
+        }
+
+        /* Modern Framed Circle Photo Link Hook */
+        .smile-frame-container {
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 15px auto;
+            border-radius: 50%;
+            padding: 5px;
+            background: linear-gradient(135deg, var(--rose-main), var(--rose-soft));
+            box-shadow: 0 8px 20px rgba(207, 141, 150, 0.25);
+            animation: softGlow 3s infinite ease-in-out;
+        }
+        .smile-frame-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            background-color: #fff;
         }
 
         .gold-input {
@@ -180,9 +198,8 @@
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(207, 141, 150, 0.25);
         }
-        .action-trigger:hover { transform: translateY(-1px); }
 
-        /* Heart Navigation Button */
+        /* Interactive Animated Core Heart Controls */
         .heart-wrapper {
             margin-top: 25px;
             display: inline-flex;
@@ -193,8 +210,8 @@
         }
 
         .heart-flow-btn {
-            width: 48px;
-            height: 48px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             background: #ffffff;
             border: 1px solid var(--luxury-border);
@@ -202,15 +219,17 @@
             justify-content: center;
             align-items: center;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
             box-shadow: 0 4px 10px rgba(207, 141, 150, 0.1);
         }
         .heart-flow-btn svg {
             width: 18px;
             height: 18px;
             fill: var(--rose-main);
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
-        .heart-flow-btn:hover { transform: scale(1.05); border-color: var(--rose-main); }
+        .heart-flow-btn:hover { transform: scale(1.15); border-color: var(--rose-main); box-shadow: 0 6px 15px rgba(207, 141, 150, 0.2); }
+        .heart-flow-btn:active svg { transform: scale(0.75); }
 
         .heart-guide-text {
             font-family: var(--font-body);
@@ -222,7 +241,6 @@
             animation: softPulse 2s infinite ease-in-out;
         }
 
-        /* Text Settings */
         .typewriter-vault {
             font-family: var(--font-body);
             font-weight: 400;
@@ -242,9 +260,8 @@
             margin-bottom: 12px;
         }
 
-        /* Small Beautiful Lists */
         .vow-list { text-align: left; max-width: 460px; margin: 15px auto; }
-        .vow-item { display: flex; align-items: center; gap: 10px; margin: 10px 0; font-size: 13.5px; }
+        .vow-item { display: flex; align-items: center; gap: 10px; margin: 12px 0; font-size: 13.5px; line-height: 1.6; }
         .vow-bullet { width: 5px; height: 5px; background: var(--rose-main); border-radius: 50%; flex-shrink: 0; }
 
         .toast-system {
@@ -269,6 +286,10 @@
             0%, 100% { opacity: 0.6; }
             50% { opacity: 1; }
         }
+        @keyframes softGlow {
+            0%, 100% { box-shadow: 0 8px 20px rgba(207, 141, 150, 0.25); }
+            50% { box-shadow: 0 8px 28px rgba(207, 141, 150, 0.45); }
+        }
     </style>
 </head>
 <body>
@@ -277,7 +298,7 @@
     
     <button class="music-ctrl" id="musicBtn">
         <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h6V3h-8z"/></svg>
-        Smooth Lo-Fi Loop
+        Your Custom Audio
     </button>
     
     <div class="toast-system" id="gatekeeperToast">This is just for Varsha ❤️</div>
@@ -300,7 +321,7 @@
                 <div class="typewriter-vault" id="letterBox"></div>
                 
                 <div class="heart-wrapper">
-                    <div class="heart-flow-btn" onclick="transitionTo(2)">
+                    <div class="heart-flow-btn" onclick="triggerSyncExplosion(2, event)">
                         <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.5 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
                     </div>
                     <span class="heart-guide-text">Click on Heart</span>
@@ -310,7 +331,11 @@
 
         <div class="screen" id="stage-moments">
             <div class="luxury-card">
-                <h2 class="cinematic-title" style="font-size: 16px;">My Favorite Things</h2>
+                <div class="smile-frame-container">
+                    <img src="smile.jpg" alt="Varsha's Smile">
+                </div>
+                
+                <h2 class="cinematic-title" style="font-size: 16px; margin-bottom: 5px;">My Favorite Things</h2>
                 
                 <div class="vow-list">
                     <div class="vow-item"><div class="vow-bullet"></div><p>Tumhari wo pyari si smile jisse mera kaisa bhi day ho, achha ho jata hai.</p></div>
@@ -320,7 +345,7 @@
                 </div>
 
                 <div class="heart-wrapper">
-                    <div class="heart-flow-btn" onclick="transitionTo(3)">
+                    <div class="heart-flow-btn" onclick="triggerSyncExplosion(3, event)">
                         <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.5 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
                     </div>
                     <span class="heart-guide-text">Click on Heart</span>
@@ -339,7 +364,7 @@
                 </div>
 
                 <div class="heart-wrapper">
-                    <div class="heart-flow-btn" onclick="transitionTo(4)">
+                    <div class="heart-flow-btn" onclick="triggerSyncExplosion(4, event)">
                         <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.5 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
                     </div>
                     <span class="heart-guide-text">Click on Heart</span>
@@ -365,218 +390,26 @@
     </div>
 
     <script>
-        let audioCtx = null;
-        let mainFilter = null;
+        let MY_SONG_FILE = "song.mp3"; 
+        let audioTrack = null;
         let isAudioPlaying = false;
-        let lofiLoopId = null;
 
-        function initLofiAudio() {
-            try {
-                const AudioContext = window.AudioContext || window.webkitAudioContext;
-                audioCtx = new AudioContext();
-                mainFilter = audioCtx.createBiquadFilter();
-                mainFilter.type = 'lowpass';
-                mainFilter.frequency.setValueAtTime(400, audioCtx.currentTime); // Lofi muffled warm feel
-            } catch(e) { console.log("Audio deferred."); }
-        }
-
-        function triggerLofiChord(freqs, startTime, duration, vol) {
-            if (!audioCtx) return;
-            freqs.forEach(f => {
-                let osc = audioCtx.createOscillator();
-                let gainNode = audioCtx.createGain();
-                
-                // Pure sine waves build the ultimate calming ambient lo-fi bedroom melody
-                osc.type = 'sine';
-                osc.frequency.setValueAtTime(f, audioCtx.currentTime + startTime);
-                
-                gainNode.gain.setValueAtTime(0, audioCtx.currentTime + startTime);
-                gainNode.gain.linearRampToValueAtTime(vol / freqs.length, audioCtx.currentTime + startTime + 0.3);
-                gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + startTime + duration);
-                
-                osc.connect(gainNode);
-                gainNode.connect(mainFilter);
-                mainFilter.connect(audioCtx.destination);
-                
-                osc.start(audioCtx.currentTime + startTime);
-                osc.stop(audioCtx.currentTime + startTime + duration);
-            });
-        }
-
-        function runLofiAcousticLoop() {
-            if (!isAudioPlaying) return;
-            
-            // Ultra-calming, slow-moving romantic lofi chord cycles (Cmaj7 -> Fmaj7 smooth transitions)
-            triggerLofiChord([261.63, 329.63, 392.00, 493.88], 0.0, 3.5, 0.09); // Cmaj7 (Warm & comforting)
-            triggerLofiChord([349.23, 440.00, 523.25, 587.33], 4.0, 3.5, 0.08); // Fmaj7 (Dreamy & deep)
-            
-            lofiLoopId = setTimeout(runLofiAcousticLoop, 8000);
+        function initCustomLoveAudio() {
+            audioTrack = new Audio();
+            audioTrack.src = MY_SONG_FILE;
+            audioTrack.loop = true;
+            audioTrack.volume = 0.85;
         }
 
         function startCinematicScore() {
             if (isAudioPlaying) return;
-            if (!audioCtx) initLofiAudio();
-            if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
-            
-            isAudioPlaying = true;
-            document.getElementById('musicBtn').style.display = 'flex';
-            runLofiAcousticLoop();
+            if (!audioTrack) initCustomLoveAudio();
+            audioTrack.play().then(() => {
+                isAudioPlaying = true;
+                document.getElementById('musicBtn').style.display = 'flex';
+            }).catch(e => console.log("Audio waiting..."));
         }
 
         document.getElementById('musicBtn').addEventListener('click', () => {
-            if(audioCtx) {
-                if(audioCtx.state === 'running') {
-                    audioCtx.suspend();
-                    document.getElementById('musicBtn').style.opacity = 0.4;
-                } else {
-                    audioCtx.resume();
-                    document.getElementById('musicBtn').style.opacity = 1;
-                }
-            }
-        });
-    </script>
-
-    <script>
-        const canvas = document.getElementById('cinemaSpace');
-        const ctx = canvas.getContext('2d');
-
-        let elements = [];
-        let activeStageIndex = 0;
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-
-        class LuxuryNode {
-            constructor(type) {
-                this.type = type; // 'star', 'petal'
-                this.reset();
-                if(type === 'star') this.y = Math.random() * canvas.height;
-            }
-            reset() {
-                this.x = Math.random() * canvas.width;
-                this.size = Math.random() * 2 + 1;
-                this.alpha = Math.random() * 0.3 + 0.15;
-                
-                if(this.type === 'star') {
-                    this.y = Math.random() * canvas.height;
-                    this.speedY = Math.random() * 0.1 + 0.05;
-                    this.speedX = (Math.random() - 0.5) * 0.05;
-                } else {
-                    this.y = -15;
-                    this.size = Math.random() * 4 + 3;
-                    this.speedY = Math.random() * 0.5 + 0.3;
-                    this.speedX = Math.sin(Math.random()) * 0.2;
-                    this.angle = Math.random() * 360;
-                    this.spinSpeed = Math.random() * 0.4 - 0.2;
-                }
-            }
-            update() {
-                if(this.type === 'star') {
-                    this.y -= this.speedY;
-                    this.x += this.speedX;
-                    if(this.y < -10) this.reset();
-                } else {
-                    this.y += this.speedY;
-                    this.x += this.speedX;
-                    this.angle += this.spinSpeed;
-                    if(this.y > canvas.height + 10) this.reset();
-                }
-            }
-            draw() {
-                ctx.save();
-                if(this.type === 'star') {
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(110, 70, 74, ${this.alpha})`;
-                    ctx.fill();
-                } else {
-                    ctx.translate(this.x, this.y);
-                    ctx.rotate(this.angle * Math.PI / 180);
-                    ctx.beginPath();
-                    ctx.ellipse(0, 0, this.size, this.size * 0.6, 0, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(207, 141, 150, 0.35)`;
-                    ctx.fill();
-                }
-                ctx.restore();
-            }
-        }
-
-        function regenerateAnimationEnvironment(stage) {
-            elements = [];
-            let count = 45; // Lower count makes it super smooth and readable
-            let type = (stage === 2 || stage === 4) ? 'petal' : 'star';
-
-            for(let i = 0; i < count; i++) {
-                elements.push(new LuxuryNode(type));
-            }
-        }
-        regenerateAnimationEnvironment(0);
-
-        function renderScene() {
-            ctx.fillStyle = 'rgba(255, 246, 247, 0.3)'; 
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            elements.forEach(el => {
-                el.update();
-                el.draw();
-            });
-
-            requestAnimationFrame(renderScene);
-        }
-        requestAnimationFrame(renderScene);
-    </script>
-
-    <script>
-        const naturalHinglishText = "Varsha, sach bataoon toh jab se tum meri life me aayi ho na, bohot saari cheezein badal gayi hain. Tumhare sath rehna, tumse baaten karna mujhe sach me bohot accha lagta hai. Tum mere liye sirf ek special person nahi ho, balki tum wo insaan ho jiske sath main bina soche jaisa hoon, waisa reh sakta hoon. Tumhare chehre par ye lines padhkar ek chhoti si smile aa jaye, bas isiliye maine ye chhoti si screen tumhare liye banayi hai...";
-
-        function verifyIdentity() {
-            const nameField = document.getElementById('passkeyField').value.trim();
-            if(nameField.toLowerCase() === 'varsha') {
-                startCinematicScore();
-                transitionTo(1);
-                setTimeout(triggerTypewriter, 1000);
-            } else {
-                const toast = document.getElementById('gatekeeperToast');
-                toast.classList.add('awoken');
-                setTimeout(() => { toast.classList.remove('awoken'); }, 3000);
-            }
-        }
-
-        function transitionTo(stageNum) {
-            activeStageIndex = stageNum;
-            regenerateAnimationEnvironment(stageNum);
-            
-            const screens = document.querySelectorAll('.screen');
-            screens.forEach(s => s.classList.remove('active'));
-            
-            setTimeout(() => {
-                screens[stageNum].classList.add('active');
-            }, 50);
-        }
-
-        function triggerTypewriter() {
-            const container = document.getElementById('letterBox');
-            let i = 0;
-            container.innerHTML = "";
-            
-            function execute() {
-                if (i < naturalHinglishText.length) {
-                    container.innerHTML += naturalHinglishText.charAt(i);
-                    i++;
-                    let delay = naturalHinglishText.charAt(i-1) === '.' || naturalHinglishText.charAt(i-1) === ',' ? 300 : 25;
-                    setTimeout(execute, delay);
-                }
-            }
-            execute();
-        }
-
-        document.getElementById('passkeyField').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') verifyIdentity();
-        });
-    </script>
-</body>
-</html>
+            if(audioTrack) {
+                if(!audioTrack
